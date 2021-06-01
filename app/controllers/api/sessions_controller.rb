@@ -6,9 +6,9 @@ class Api::SessionsController < ApplicationController
   def create 
     @user = User.find_by_credentials(params[:user][:email], params[:user][:password])
     
-    if !@user
+    if @user.nil?
       flash.now[:errors] = ['Invalid Email or Password']
-      render :new
+      redirect_to root_url
     else
       login(@user)
       redirect_to root_url
