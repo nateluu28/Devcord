@@ -322,10 +322,7 @@ var mSTP = function mSTP(_ref) {
   var errors = _ref.errors;
   return {
     errors: errors.session,
-    formType: 'login',
-    navLink: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-      to: "/signup"
-    }, "sign up instead")
+    formType: 'login'
   };
 };
 
@@ -411,6 +408,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(e) {
       e.preventDefault();
       var user = Object.assign({}, this.state);
+      console.log(this.state);
       this.props.processForm(user);
     }
   }, {
@@ -475,10 +473,7 @@ var mSTP = function mSTP(_ref) {
   var errors = _ref.errors;
   return {
     errors: errors.session,
-    formType: 'signup',
-    navLink: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-      to: "/login"
-    }, "log in instead")
+    formType: 'signup'
   };
 };
 
