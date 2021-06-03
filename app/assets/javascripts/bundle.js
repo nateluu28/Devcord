@@ -330,6 +330,11 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
+var DEMO_USER = {
+  username: 'demo',
+  email: 'demo@devcord.com',
+  password: '123123'
+};
 
 var LoginForm = /*#__PURE__*/function (_React$Component) {
   _inherits(LoginForm, _React$Component);
@@ -344,9 +349,11 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {
       email: '',
-      password: ''
+      password: '',
+      demo: false
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.setDemoLogin = _this.setDemoLogin.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -363,8 +370,15 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      var user = Object.assign({}, this.state);
+      var user = this.state.demo ? DEMO_USER : Object.assign({}, this.state);
       this.props.login(user);
+    }
+  }, {
+    key: "setDemoLogin",
+    value: function setDemoLogin(e) {
+      this.setState({
+        demo: true
+      });
     }
   }, {
     key: "renderErrors",
@@ -398,6 +412,11 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
         className: "session-button",
         type: "submit",
         value: this.props.formType
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "demo-button",
+        type: "submit",
+        value: "Demo Login",
+        onClick: this.setDemoLogin
       })));
     }
   }]);
