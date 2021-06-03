@@ -13,6 +13,11 @@ class Api::ServersController < ApplicationController
     render :index
   end
 
+  def show 
+    @server = Server.find(params[:id])
+    render :show
+  end
+
   def servers_params
     params.require(:server).permit(:name, :owner_id)
   end

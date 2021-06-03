@@ -36,24 +36,26 @@ class LoginForm extends React.Component {
 
   render (){
     return (
-      <div>
+      <div className="session-container">
         <form onSubmit={this.handleSubmit}>
-          Welcome to Devcord!
+          <span className='welcome-span'>Welcome back!</span><br></br>
+          <span className='secondary-welcome-span'>We're so excited to see you again!</span>
           {this.renderErrors()}
-          <label>Email:
+          <label>EMAIL OR PHONE NUMBER<br></br>
               <input type="text"
                 value={this.state.email}
                 onChange={this.update('email')}
               />
           </label>
             <br/>
-          <label>Password:
+          <label>PASSWORD<br></br>
             <input type="password"
               value={this.state.password}
               onChange={this.update('password')}
             />
           </label>
-          <input type="submit" value={this.props.formType} />
+          <br></br>
+          <input className='session-button' type="submit" value={this.props.formType} />
         </form>
       </div>
     )

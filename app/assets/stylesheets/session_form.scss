@@ -1,0 +1,26 @@
+.session-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 32px;
+  background-color: rgb(54, 57, 63);
+  color: rgb(142, 146, 151);
+  & input {
+    width: 100%;
+  }
+  & > * {
+    margin: 5px;
+  }
+
+}
+
+.welcome-span {
+  color: #fff;
+}
+
+.session-button {
+  all: unset;
+  background-color: #5865f2;
+  display: inline-block;
+  // width: 100%;
+}
