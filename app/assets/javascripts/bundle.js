@@ -364,7 +364,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(e) {
       e.preventDefault();
       var user = Object.assign({}, this.state);
-      this.props.processForm(user);
+      this.props.login(user);
     }
   }, {
     key: "renderErrors",
@@ -426,15 +426,9 @@ var mSTP = function mSTP(_ref) {
   };
 };
 
-var mDTP = function mDTP(dispatch) {
-  return {
-    processForm: function processForm(user) {
-      return dispatch(Object(_actions_sessions_actions__WEBPACK_IMPORTED_MODULE_1__["login"])(user));
-    }
-  };
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_login_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, {
+  login: _actions_sessions_actions__WEBPACK_IMPORTED_MODULE_1__["login"]
+})(_login_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
@@ -509,7 +503,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(e) {
       e.preventDefault();
       var user = Object.assign({}, this.state);
-      this.props.processForm(user);
+      this.props.signup(user);
     }
   }, {
     key: "renderErrors",
@@ -575,15 +569,9 @@ var mSTP = function mSTP(_ref) {
   };
 };
 
-var mDTP = function mDTP(dispatch) {
-  return {
-    processForm: function processForm(user) {
-      return dispatch(Object(_actions_sessions_actions__WEBPACK_IMPORTED_MODULE_1__["signup"])(user));
-    }
-  };
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_signup_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, {
+  signup: _actions_sessions_actions__WEBPACK_IMPORTED_MODULE_1__["signup"]
+})(_signup_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
