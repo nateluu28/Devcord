@@ -5,3 +5,28 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.destroy_all
+
+ActiveRecord::Base.connection.reset_pk_sequence!('users')
+
+user1 = User.create!(
+  username: 'supernate28',
+  email: 'nate@gmail.com',
+  password: '123123'
+  )
+user2 = User.create!(
+  username: 'bob',
+  email: 'bob@gmail.com',
+  password: 'bobobo'
+  )
+
+server1 = Server.create!(
+  name: 'aA Discord',
+  owner_id: user1.id
+  )
+
+server2 = Server.create!(
+  name: 'banana Discord',
+  owner_id: user1.id
+  )

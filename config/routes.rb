@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root to: 'static_pages#root'
   # create routes for my session, user
   namespace :api, defaults: {format: :json} do 
-    resources :users, only: [:create]
     resource :session, only: [:create, :destroy]
+    resources :users, only: [:create]
+    resources :servers, only: [:create, :destroy, :show, :index]
   end
 end
