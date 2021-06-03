@@ -17,8 +17,6 @@ class LoginForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.setDemoLogin = this.setDemoLogin.bind(this);
   }
-
-
   
   update(field) {
     return e => this.setState({
