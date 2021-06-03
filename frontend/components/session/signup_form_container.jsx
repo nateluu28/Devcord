@@ -1,8 +1,6 @@
 import { connect } from 'react-redux';
-import React from 'react';
-import { Link } from 'react-router-dom';
 import { signup } from '../../actions/sessions_actions';
-import SessionForm from './session_form';
+import SignUpForm from './signup_form';
 
 
 const mSTP = ({ errors }) => (
@@ -19,4 +17,4 @@ const mDTP = dispatch => {
 };
 
 
-export default connect(mSTP, mDTP)(SessionForm);
+export default connect(mSTP, mDTP)(SignUpForm);
