@@ -21,6 +21,12 @@ user2 = User.create!(
   password: 'bobobo'
   )
 
+user3 = User.create!(
+  username: 'demo',
+  email: 'demo@devcord.com',
+  password: '123123'
+  )
+
 server1 = Server.create!(
   name: 'aA Discord',
   owner_id: user1.id

@@ -1,14 +1,24 @@
 import React from 'react';
 
+const DEMO_USER = {
+  username: 'demo',
+  email: 'demo@devcord.com',
+  password: '123123'
+};
+
 class LoginForm extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      demo: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-  }  
+    this.setDemoLogin = this.setDemoLogin.bind(this);
+  }
+
+
   
   update(field) {
     return e => this.setState({
@@ -18,8 +28,14 @@ class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const user = Object.assign({}, this.state);
+    const user = this.state.demo ? DEMO_USER : Object.assign({}, this.state);
     this.props.login(user);
+  }
+
+  setDemoLogin(e) {
+    this.setState({
+      demo: true
+    });
   }
 
   renderErrors() {
@@ -56,6 +72,7 @@ class LoginForm extends React.Component {
           </label>
           <br></br>
           <input className='session-button' type="submit" value={this.props.formType} />
+          <input className='demo-button' type="submit" value='Demo Login' onClick={this.setDemoLogin} />
         </form>
       </div>
     )
