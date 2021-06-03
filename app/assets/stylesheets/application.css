@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+.app {
+  display: flex;
+  justify-content: space-between;
+}
+
+.auth {
+  display: flex;
+  justify-content: space-between;
+}
