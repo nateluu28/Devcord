@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { login } from '../../actions/sessions_actions';
+import { login, receiveErrors } from '../../actions/sessions_actions';
 import SessionForm from './login_form';
 
 
@@ -10,4 +10,4 @@ const mSTP = ({ errors }) => (
   }
 )
 
-export default connect(mSTP, { login })(SessionForm);
+export default connect(mSTP, { login, receiveErrors })(SessionForm);

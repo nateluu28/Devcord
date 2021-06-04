@@ -1,10 +1,17 @@
-import { RECEIVE_SERVER } from '../actions/servers_actions';
+import { RECEIVE_SERVER, RECEIVE_SERVERS, REMOVE_SERVER } from '../actions/servers_actions';
 
 const serversReducer = (state={}, action) => {
   Object.freeze(state);
+  const nextState = Object.assign({}, state);
   switch (action.type) {
     case RECEIVE_SERVER:
-    return Object.assign({}, state, { [action.currentUser.id]: action.currentUser });
+      nextState[action.servers.id] = action.servers;
+      return nextState
+    case RECEIVE_SERVERS:
+      return Object.assign({}, action.servers, state);
+    case REMOVE_SERVER:
+      delete nextState[action.serverId];
+      return nextState;
     default:
       return state;
   }

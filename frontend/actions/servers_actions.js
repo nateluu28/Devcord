@@ -14,8 +14,9 @@ export const receiveServers = servers => ({
   servers
 });
 
-export const removeServer = () => ({
-  type: REMOVE_SERVER
+export const removeServer = (server) => ({
+  type: REMOVE_SERVER,
+  serverId: server.id
 });
 
 export const createServer = id => dispatch => {
@@ -31,4 +32,9 @@ export const fetchServer = id => dispatch => {
 export const fetchServers = () => dispatch => {
   return serverAPIUtil.fetchServers()
     .then(server => dispatch(receiveServers(server)));
+}
+
+export const deleteServer = (server) => dispatch => {
+  return serverAPIUtil.deleteServer(server.id)
+    .then(server => dispatch(removeServer(server)));
 }

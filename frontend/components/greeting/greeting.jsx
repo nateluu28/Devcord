@@ -1,12 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+
 
 const Greeting = ({ currentUser, logout }) => {
+  let history = useHistory();
   const sessionLinks = () => (
-    <nav>
-      <Link to="/login">Login</Link>
-      <Link to="/signup">Sign up!</Link>
-    </nav>
+    <div className="header-container">
+      <span>DEVCORD</span>
+      <div className="header-links">
+        <a href='#'>Download</a>
+        <a href='#'>Nitro</a>
+        <a href='#'>Safety</a>
+        <a href='#'>Support</a>
+      </div>
+        <button 
+          onClick={()=> history.push("/login")} 
+          className="home-login-button">
+          Login
+        </button>
+    </div>
   );
   const personalGreeting = () => (
     <div>

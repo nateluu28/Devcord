@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 const DEMO_USER = {
   username: 'demo',
   email: 'demo@devcord.com',
@@ -48,6 +48,10 @@ class LoginForm extends React.Component {
     );
   }
 
+  componentWillUnmount() {
+    this.props.receiveErrors([]);
+  }
+
   render (){
     return (
       <div className="session-container">
@@ -71,6 +75,8 @@ class LoginForm extends React.Component {
           <br></br>
           <input className='session-button' type="submit" value={this.props.formType} />
           <input className='demo-button' type="submit" value='Demo Login' onClick={this.setDemoLogin} />
+
+          <span>Need an account? <Link to="/signup">Register</Link> </span>
         </form>
       </div>
     )
