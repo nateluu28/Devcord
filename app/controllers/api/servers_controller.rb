@@ -18,6 +18,8 @@ class Api::ServersController < ApplicationController
     render :show
   end
 
+  # create delete ...
+
   def servers_params
     params.require(:server).permit(:name, :owner_id)
   end

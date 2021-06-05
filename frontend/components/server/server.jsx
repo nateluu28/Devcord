@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 class Server extends React.Component {
   constructor(props) {
     super(props);
@@ -20,11 +21,11 @@ class Server extends React.Component {
     if (!this.props.loading) {
       let servers = Object.values(this.props.servers);
       serverNames = servers.map((server,i) => (
-        <li>
-            {server.name}
-        </li>
+
         // Create server index item in the future 
         // make it clickable
+
+        <li>{server.name}</li>
       ));
     }
 
