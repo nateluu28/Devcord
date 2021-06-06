@@ -245,6 +245,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _homepage_homepage_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./homepage/homepage_container */ "./frontend/components/homepage/homepage_container.jsx");
 /* harmony import */ var _server_server_item__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./server/server_item */ "./frontend/components/server/server_item.jsx");
+/* harmony import */ var _nomatch_nomatch__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./nomatch/nomatch */ "./frontend/components/nomatch/nomatch.jsx");
+
 
 
 
@@ -271,6 +273,9 @@ var App = function App() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_4__["Route"], {
     path: "/servers/:serverId",
     component: _server_server_item__WEBPACK_IMPORTED_MODULE_6__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_4__["Route"], {
+    path: "*",
+    component: _nomatch_nomatch__WEBPACK_IMPORTED_MODULE_8__["default"]
   })));
 };
 
@@ -437,6 +442,27 @@ var mSTP = function mSTP(_ref) {
 
 /***/ }),
 
+/***/ "./frontend/components/nomatch/nomatch.jsx":
+/*!*************************************************!*\
+  !*** ./frontend/components/nomatch/nomatch.jsx ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var NoMatch = function NoMatch() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "404 PAGE NOT FOUND");
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (NoMatch);
+
+/***/ }),
+
 /***/ "./frontend/components/root.jsx":
 /*!**************************************!*\
   !*** ./frontend/components/root.jsx ***!
@@ -541,14 +567,9 @@ var Server = /*#__PURE__*/function (_React$Component) {
       if (!this.props.loading) {
         var servers = Object.values(this.props.servers);
         serverNames = servers.map(function (server, i) {
-          return (
-            /*#__PURE__*/
-            // Create server index item in the future 
-            // make it clickable
-            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-              to: "/servers/".concat(server.id)
-            }, server.name))
-          );
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+            to: "/servers/".concat(server.id)
+          }, server.name));
         });
       }
 
@@ -632,7 +653,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-
+ // to-do add the serveritem container if needed
 
 var ServerItem = /*#__PURE__*/function (_React$Component) {
   _inherits(ServerItem, _React$Component);

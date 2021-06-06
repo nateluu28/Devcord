@@ -21,8 +21,6 @@ class Server extends React.Component {
     if (!this.props.loading) {
       let servers = Object.values(this.props.servers);
       serverNames = servers.map((server,i) => (
-        // Create server index item in the future 
-        // make it clickable
         <li>
           <Link to={`/servers/${server.id}`}>
             {server.name}

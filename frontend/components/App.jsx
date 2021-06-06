@@ -6,6 +6,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util'
 import { Route, Switch } from 'react-router';
 import HomePageContainer from './homepage/homepage_container';
 import ServerItem from './server/server_item';
+import NoMatch from './nomatch/nomatch';
 
 const App = () => (
   <div className='app'>
@@ -14,6 +15,7 @@ const App = () => (
       <AuthRoute exact path='/login' component={LoginFormContainer} />
       <AuthRoute exact path='/signup' component={SignupFormContainer} />
       <Route path='/servers/:serverId' component={ServerItem} />
+      <Route path='*' component={NoMatch} />
     </Switch>
   </div>
 );

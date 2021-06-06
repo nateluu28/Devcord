@@ -1,5 +1,5 @@
 import React from 'react';
-
+// to-do add the serveritem container if needed
 class ServerItem extends React.Component {
   constructor(props) {
     super(props);
