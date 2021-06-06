@@ -245,7 +245,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _homepage_homepage_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./homepage/homepage_container */ "./frontend/components/homepage/homepage_container.jsx");
 /* harmony import */ var _server_server_item__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./server/server_item */ "./frontend/components/server/server_item.jsx");
-/* harmony import */ var _nomatch_nomatch__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./nomatch/nomatch */ "./frontend/components/nomatch/nomatch.jsx");
+/* harmony import */ var _nomatch_nomatch__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./nomatch/nomatch */ "./frontend/components/nomatch/nomatch.jsx");
 
 
 
@@ -275,7 +275,7 @@ var App = function App() {
     component: _server_server_item__WEBPACK_IMPORTED_MODULE_6__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_4__["Route"], {
     path: "*",
-    component: _nomatch_nomatch__WEBPACK_IMPORTED_MODULE_8__["default"]
+    component: _nomatch_nomatch__WEBPACK_IMPORTED_MODULE_7__["default"]
   })));
 };
 
