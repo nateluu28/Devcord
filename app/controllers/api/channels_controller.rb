@@ -10,7 +10,7 @@ class Api::ChannelsController < ApplicationController
   end
 
   def index 
-    @channels = Channel.all
+    @channels = Channel.where('server_id = ?', params[:server_id])
     render :index
   end
 
@@ -18,8 +18,6 @@ class Api::ChannelsController < ApplicationController
     @channel = Channel.find(params[:channel_id])
     render :show
   end
-
-  # create delete ...
 
   def channels_params
     params.require(:channel).permit(:name)
