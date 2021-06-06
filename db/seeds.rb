@@ -36,3 +36,18 @@ server2 = Server.create!(
   name: 'banana Discord',
   owner_id: user1.id
   )
+
+channel1 = Channel.create!(
+  name: 'textChannel1',
+  server_id: server1.id
+  )
+
+channel2 = Channel.create!(
+  name: 'textChannel2',
+  server_id: server1.id
+  )
+
+channel3 = Channel.create!(
+  name: 'textChannel3',
+  server_id: server2.id
+  )

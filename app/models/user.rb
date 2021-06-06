@@ -6,6 +6,11 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  has_many :servers,
+    class_name: :Server,
+    foreign_key: :owner_id
+
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     return nil unless user
@@ -30,4 +35,5 @@ class User < ApplicationRecord
     self.save
     self.session_token
   end
+
 end
