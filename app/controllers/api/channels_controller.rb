@@ -10,14 +10,14 @@ class Api::ChannelsController < ApplicationController
   end
 
   def index 
-    @channels = Channel.where('server_id = ?', params[:server_id])
+    @channels = Server.find(params[:server_id]).channels
     render :index
   end
 
-  def show 
-    @channel = Channel.find(params[:channel_id])
-    render :show
-  end
+  # def show 
+  #   @channel = Channel.find(params[:channel_id])
+  #   render :show
+  # end
 
   def channels_params
     params.require(:channel).permit(:name)

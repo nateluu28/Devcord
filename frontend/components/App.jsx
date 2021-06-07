@@ -6,6 +6,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util'
 import { Route, Switch } from 'react-router';
 import HomePageContainer from './homepage/homepage_container';
 import ServerItem from './server/server_item';
+import ChannelItem from './channel/channel_item';
 import NoMatch from './nomatch/nomatch';
 
 const App = () => (
@@ -14,7 +15,8 @@ const App = () => (
       <Route exact path='/' component={HomePageContainer} />
       <AuthRoute exact path='/login' component={LoginFormContainer} />
       <AuthRoute exact path='/signup' component={SignupFormContainer} />
-      <Route path='/servers/:serverId' component={ServerItem} />
+      <ProtectedRoute path='/servers/:serverId' component={ServerItem} />
+      <ProtectedRoute path='/servers/:serverId/channels/:channelId' component={ChannelItem} />
       <Route path='*' component={NoMatch} />
     </Switch>
   </div>

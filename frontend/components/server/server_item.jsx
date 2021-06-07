@@ -1,4 +1,5 @@
 import React from 'react';
+import ChannelContainer from '../channel/channel_container';
 // to-do add the serveritem container if needed
 class ServerItem extends React.Component {
   constructor(props) {
@@ -14,10 +15,11 @@ class ServerItem extends React.Component {
   }
 
   render() {
-    console.log(this.state);
+    let serverId = this.state.id;
     return ( 
       <div> 
-        <h1>Server Item {this.state.id}</h1>
+        <h1>Server Item {serverId}</h1>
+        <ChannelContainer serverId={serverId} />
       </div>
     )
   }

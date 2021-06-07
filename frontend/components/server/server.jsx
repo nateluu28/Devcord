@@ -37,7 +37,6 @@ class Server extends React.Component {
         </span>
         {serverNames}
       </div>
-
     )
   }
 }
