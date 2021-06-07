@@ -9,7 +9,7 @@ class ChannelItem extends React.Component {
     console.log(this.props);
     return (
       <div>
-        <h1>channel item</h1>
+        <h1>channel item {this.props.match.params.channelId}</h1>
       </div>
     )
   }
