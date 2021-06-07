@@ -9,4 +9,6 @@ Rails.application.routes.draw do
       resources :channels
     end
   end
+
+  mount ActionCable.server, at: '/cable'
 end
