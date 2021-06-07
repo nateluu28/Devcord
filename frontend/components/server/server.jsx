@@ -21,7 +21,7 @@ class Server extends React.Component {
     if (!this.props.loading) {
       let servers = Object.values(this.props.servers);
       serverNames = servers.map((server,i) => (
-        <li>
+        <li key={i}>
           <Link to={`/servers/${server.id}`}>
             {server.name}
           </Link>

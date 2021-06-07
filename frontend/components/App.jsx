@@ -8,6 +8,7 @@ import HomePageContainer from './homepage/homepage_container';
 import ServerItem from './server/server_item';
 import ChannelItem from './channel/channel_item';
 import NoMatch from './nomatch/nomatch';
+import ServerContainer from './server/server_container';
 
 const App = () => (
   <div className='app'>
@@ -15,6 +16,7 @@ const App = () => (
       <Route exact path='/' component={HomePageContainer} />
       <AuthRoute exact path='/login' component={LoginFormContainer} />
       <AuthRoute exact path='/signup' component={SignupFormContainer} />
+      <ProtectedRoute exact path='/servers/' component={ServerContainer} />
       <ProtectedRoute path='/servers/:serverId' component={ServerItem} />
       <ProtectedRoute path='/servers/:serverId/channels/:channelId' component={ChannelItem} />
       <Route path='*' component={NoMatch} />

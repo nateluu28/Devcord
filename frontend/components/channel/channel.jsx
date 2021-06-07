@@ -10,7 +10,6 @@ class Channel extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log(this.props);
     if(prevProps.serverId !== this.props.serverId){
       this.props.fetchChannels(this.props.serverId)
         .then(() => this.setState({loading: false}));
@@ -24,7 +23,7 @@ class Channel extends React.Component {
     if (!this.state.loading) {
       let channels = Object.values(this.props.channels);
       channelNames = channels.map((channel,i) => (
-        <li>
+        <li key={i}>
           <Link to={`/servers/${serverId}/channels/${channel.id}`}>
             {channel.name}
           </Link>
