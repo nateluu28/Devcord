@@ -1,6 +1,6 @@
 export const createChannel = (serverId, channel) => (
   $.ajax({
-    method: 'post',
+    method: 'POST',
     url: `api/servers/${serverId}/channels`,
     data: { channel }
   })
@@ -8,21 +8,21 @@ export const createChannel = (serverId, channel) => (
 
 export const deleteChannel = (serverId, channel) => (
   $.ajax({
-    method: 'delete',
+    method: 'DELETE',
     url: `api/servers/${serverId}/channels/${channel.id}`
   })
 )
 
 export const fetchChannel = (serverId, channel) => (
   $.ajax({
-    method: 'get',
+    method: 'GET',
     url: `api/servers/${serverId}/channels/${channel.id}`
   })
 )
 
 export const fetchChannels = (serverId) => (
   $.ajax({
-    method: 'get',
+    method: 'GET',
     url: `api/servers/${serverId}/channels`
   })
 )

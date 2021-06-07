@@ -1,6 +1,6 @@
 export const createServer = server => (
   $.ajax({
-    method: 'post',
+    method: 'POST',
     url: 'api/servers',
     data: { server }
   })
@@ -8,21 +8,21 @@ export const createServer = server => (
 
 export const deleteServer = serverId => (
   $.ajax({
-    method: 'delete',
+    method: 'DELETE',
     url: `api/servers${serverId}`
   })
 )
 
 export const fetchServer = serverId => (
   $.ajax({
-    method: 'get',
+    method: 'GET',
     url: `api/servers${serverId}`
   })
 )
 
 export const fetchServers = () => (
   $.ajax({
-    method: 'get',
+    method: 'GET',
     url: 'api/servers'
   })
 )

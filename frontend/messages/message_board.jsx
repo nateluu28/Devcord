@@ -23,12 +23,30 @@ class MessageBoard extends React.Component {
           return this.perform("speak", data);
         }
       }
-    )
+    );
   }
 
+  // componentDidUpdate() {
+  //   this.bottom.current.scrollIntoView();
+  // }
+
   render() {
+    const messageList = this.state.messages.map(message => {
+      return (
+        <li key={message.id}>
+          {message}
+          <div ref={this.bottom} />
+        </li>
+      )
+    });
     return (
-      
+      <div>
+        <div>MessageBoard</div>
+        <div>{messageList}</div>
+        <MessageForm />
+      </div>
     )
   }
 }
+
+export default MessageBoard;

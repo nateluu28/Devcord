@@ -1,4 +1,5 @@
 import React from 'react';
+import MessageBoard from '../../messages/message_board';
 import ChannelContainer from '../channel/channel_container';
 // to-do add the serveritem container if needed
 class ServerItem extends React.Component {
