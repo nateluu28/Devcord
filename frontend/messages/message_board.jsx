@@ -1,5 +1,5 @@
 import React from 'react';
-import MessageForm from './message_form';
+import MessageFormContainer from './message_form_container';
 
 class MessageBoard extends React.Component {
   constructor(props){
@@ -12,7 +12,7 @@ class MessageBoard extends React.Component {
 
   componentDidMount() {
     App.cable.subscriptions.create(
-      { channel: "ChatChannel" },
+      { channel: "ChatChannel", channelId: this.props.channelId },
       {
         received: data => {
           this.setState({
@@ -20,7 +20,6 @@ class MessageBoard extends React.Component {
           });
         },
         speak: function(data) {
-          console.log("speak")
           return this.perform("speak", data);
         }
       }
@@ -41,7 +40,7 @@ class MessageBoard extends React.Component {
       <div>
         <div>MessageBoard</div>
         <div>{messageList}</div>
-        <MessageForm />
+        <MessageFormContainer channelId={this.props.channelId} />
       </div>
     )
   }

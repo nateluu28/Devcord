@@ -15,7 +15,19 @@ class MessageForm extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    App.cable.subscriptions.subscriptions[0].speak({ message: this.state.body });
+    // look for a way to iterate through subscriptions 
+    // Psuedo Code
+    // App.cable.subscriptions.forEach(subs => {
+      //   if (subs.identifier === currentChannel){
+        //   }
+        // })
+    console.log(this.props);
+    App.cable.subscriptions.subscriptions[0]
+      .speak({ 
+        body: this.state.body,
+        author_id: this.props.currentUser.id,
+        channel_id: this.props.channelId
+      });
     this.setState({ body: "" });
   }
 

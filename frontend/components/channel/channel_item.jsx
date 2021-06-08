@@ -10,7 +10,7 @@ class ChannelItem extends React.Component {
     return (
       <div>
         <h1>channel item {this.props.match.params.channelId}</h1>
-        <MessageBoard />
+        <MessageBoard channelId={this.props.match.params.channelId} />
       </div>
     )
   }
