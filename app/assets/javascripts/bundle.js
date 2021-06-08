@@ -539,7 +539,6 @@ var ChannelItem = /*#__PURE__*/function (_React$Component) {
   _createClass(ChannelItem, [{
     key: "render",
     value: function render() {
-      console.log(this.props);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "channel item ", this.props.match.params.channelId), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_messages_message_board__WEBPACK_IMPORTED_MODULE_1__["default"], null));
     }
   }]);
@@ -1418,13 +1417,11 @@ var MessageBoard = /*#__PURE__*/function (_React$Component) {
           });
         },
         speak: function speak(data) {
+          console.log("speak");
           return this.perform("speak", data);
         }
       });
-    } // componentDidUpdate() {
-    //   this.bottom.current.scrollIntoView();
-    // }
-
+    }
   }, {
     key: "render",
     value: function render() {

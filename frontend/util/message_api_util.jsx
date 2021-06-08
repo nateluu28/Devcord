@@ -6,4 +6,5 @@ export const fetchMessages = (type, id) => (
         `api/channels/${id}/messages`,
     method: 'GET'
   })
-)
+);
+

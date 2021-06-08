@@ -20,15 +20,13 @@ class MessageBoard extends React.Component {
           });
         },
         speak: function(data) {
+          console.log("speak")
           return this.perform("speak", data);
         }
       }
     );
   }
 
-  // componentDidUpdate() {
-  //   this.bottom.current.scrollIntoView();
-  // }
 
   render() {
     const messageList = this.state.messages.map(message => {
