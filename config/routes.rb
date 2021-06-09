@@ -12,8 +12,14 @@ Rails.application.routes.draw do
     end
 
     resources :channels do
-      resources :messages
+      resources :messages, except: [:destroy, :update]
     end
+
+    resources :conversations do 
+      resources :messages, except: [:destroy, :update]
+    end
+
+    resources :messages, only: [:destroy, :update]
   end
 
 end

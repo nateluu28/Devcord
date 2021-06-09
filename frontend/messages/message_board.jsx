@@ -11,11 +11,13 @@ class MessageBoard extends React.Component {
   }
 
   componentDidMount() {
+    // creates a subscription to the specific action cable
     App.cable.subscriptions.create(
       { channel: "ChatChannel", channelId: this.props.channelId },
       {
         received: data => {
           this.setState({
+            // change this later for redux
             messages: this.state.messages.concat(data['body'])
           });
         },
@@ -24,6 +26,7 @@ class MessageBoard extends React.Component {
         }
       }
     );
+    // fetches messages data
   }
 
 
@@ -40,7 +43,7 @@ class MessageBoard extends React.Component {
       <div>
         <div>MessageBoard</div>
         <div>{messageList}</div>
-        <MessageFormContainer channelId={this.props.channelId} />
+        <MessageFormContainer  />
       </div>
     )
   }

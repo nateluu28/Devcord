@@ -51,3 +51,11 @@ channel3 = Channel.create!(
   name: 'textChannel3',
   server_id: server2.id
   )
+
+message1 = Message.create!(
+  body: 'Hello!',
+  messageable: channel1,
+  author_id: user1.id
+)
+
+# CREATE MORE MESSAGES AND CREATE MORE CONVERSATIONS
