@@ -15,20 +15,18 @@ class MessageForm extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    // look for a way to iterate through subscriptions 
-    // Psuedo Code
-    // App.cable.subscriptions.forEach(subs => {
-      //   if (subs.identifier === currentChannel){
-        //   }
-        // })
-    console.log(this.props);
-    App.cable.subscriptions.subscriptions[0]
-      .speak({ 
-        body: this.state.body,
-        author_id: this.props.currentUser.id,
-        channel_id: this.props.channelId
-      });
-    this.setState({ body: "" });
+    App.cable.subscriptions.subscriptions.forEach(currentSub => {
+      let sub_obj = JSON.parse(currentSub.identifier);
+      
+      if (sub_obj.channelId === this.props.channelId){
+        currentSub.speak({ 
+            body: this.state.body,
+            author_id: this.props.currentUser.id,
+            channel_id: this.props.channelId
+          });
+        this.setState({ body: "" });
+        }
+      })
   }
 
   render(){

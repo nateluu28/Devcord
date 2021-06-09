@@ -16,7 +16,7 @@ class MessageBoard extends React.Component {
       {
         received: data => {
           this.setState({
-            messages: this.state.messages.concat(data.message)
+            messages: this.state.messages.concat(data['body'])
           });
         },
         speak: function(data) {

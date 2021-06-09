@@ -1416,7 +1416,7 @@ var MessageBoard = /*#__PURE__*/function (_React$Component) {
       }, {
         received: function received(data) {
           _this2.setState({
-            messages: _this2.state.messages.concat(data.message)
+            messages: _this2.state.messages.concat(data['body'])
           });
         },
         speak: function speak(data) {
@@ -1515,29 +1515,28 @@ var MessageForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      e.preventDefault(); // look for a way to iterate through subscriptions 
-      // Psuedo Code
+      var _this3 = this;
 
-      console.log(App.cable.subscriptions.subscriptions[0].identifier); // App.cable.subscriptions.forEach(subs => {
-      //   if (subs.identifier === currentChannel){
-      //   }
-      // })
+      e.preventDefault();
+      App.cable.subscriptions.subscriptions.forEach(function (currentSub) {
+        var sub_obj = JSON.parse(currentSub.identifier);
 
-      console.log(this.props);
-      debugger;
-      App.cable.subscriptions.subscriptions[0].speak({
-        body: this.state.body,
-        author_id: this.props.currentUser.id // channel_id: this.props.channelId
+        if (sub_obj.channelId === _this3.props.channelId) {
+          currentSub.speak({
+            body: _this3.state.body,
+            author_id: _this3.props.currentUser.id,
+            channel_id: _this3.props.channelId
+          });
 
-      });
-      this.setState({
-        body: ""
+          _this3.setState({
+            body: ""
+          });
+        }
       });
     }
   }, {
     key: "render",
     value: function render() {
-      console.log(this.props);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit.bind(this)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
