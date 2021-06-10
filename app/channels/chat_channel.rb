@@ -9,7 +9,6 @@ class ChatChannel < ApplicationCable::Channel
   def speak(data)
     @message = Message.new(data['message'])
     if @message.save
-      # @channel = Channel.find_by(id: data['messageable_id'])
       ChatChannel.broadcast_to(@channel, data['message'])
     end
   end

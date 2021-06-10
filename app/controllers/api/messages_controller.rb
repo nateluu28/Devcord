@@ -2,7 +2,6 @@ class Api::MessagesController < ApplicationController
   def create
     @channel = Channel.find_by(id: params[:channel_id])
     if @channel
-      debugger
       @message = Message.create(
         body: params[:body]
       )
@@ -12,7 +11,10 @@ class Api::MessagesController < ApplicationController
   
   #add a limit for the messages later
   def index 
-    @messages = Message.all
+    @channel = Channel.find_by(id: params[:channel_id])
+    if @channel
+      @messages = @channel.messages
+    end
     render :index
   end
 

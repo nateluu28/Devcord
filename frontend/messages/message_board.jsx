@@ -17,13 +17,10 @@ class MessageBoard extends React.Component {
       { channel: "ChatChannel", channelId: this.props.channelId },
       {
         received: data => {
-          console.log('receive')
-          console.log(data);
           this.props.fetchMessages('Channel', this.props.channelId)
           
         },
         speak: function(data) {
-          console.log('speak')
           return this.perform("speak", data);
         }
       }
@@ -31,6 +28,10 @@ class MessageBoard extends React.Component {
       // fetches messages data
       this.props.fetchMessages('Channel', this.props.channelId)
       .then(() => this.setState({loading: false}));
+  }
+
+  componentDidUpdate() {
+    this.bottom.current.scrollIntoView();
   }
 
   render() {
@@ -48,7 +49,7 @@ class MessageBoard extends React.Component {
       });
     }
     return (
-      <div>
+      <div className='message-board-container'>
         <div>MessageBoard</div>
         <div>{messageList}</div>
         <MessageFormContainer  />

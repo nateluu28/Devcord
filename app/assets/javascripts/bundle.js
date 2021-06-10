@@ -1482,13 +1482,9 @@ var MessageBoard = /*#__PURE__*/function (_React$Component) {
         channelId: this.props.channelId
       }, {
         received: function received(data) {
-          console.log('receive');
-          console.log(data);
-
           _this2.props.fetchMessages('Channel', _this2.props.channelId);
         },
         speak: function speak(data) {
-          console.log('speak');
           return this.perform("speak", data);
         }
       }); // fetches messages data
@@ -1498,6 +1494,11 @@ var MessageBoard = /*#__PURE__*/function (_React$Component) {
           loading: false
         });
       });
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      this.bottom.current.scrollIntoView();
     }
   }, {
     key: "render",
@@ -1517,7 +1518,9 @@ var MessageBoard = /*#__PURE__*/function (_React$Component) {
         });
       }
 
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "MessageBoard"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, messageList), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_message_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "message-board-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "MessageBoard"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, messageList), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_message_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], null));
     }
   }]);
 
