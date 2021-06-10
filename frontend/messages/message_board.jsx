@@ -17,20 +17,19 @@ class MessageBoard extends React.Component {
       { channel: "ChatChannel", channelId: this.props.channelId },
       {
         received: data => {
-          this.setState({
-            // change this later for redux
-            messages: this.state.messages.concat(data['body'])
-          });
-          // console.log(data)
-          // Object.assign(data, {})
+          console.log('receive')
+          console.log(data);
+          this.props.fetchMessages('Channel', this.props.channelId)
+          
         },
         speak: function(data) {
+          console.log('speak')
           return this.perform("speak", data);
         }
       }
-    );
-    // fetches messages data
-    this.props.fetchMessages('Channel', this.props.channelId)
+      );
+      // fetches messages data
+      this.props.fetchMessages('Channel', this.props.channelId)
       .then(() => this.setState({loading: false}));
   }
 
@@ -42,7 +41,7 @@ class MessageBoard extends React.Component {
         return (
           <li key={message.id}>
             {message.body}
-            author_id {message.author_id}
+            {/* author_id {message.author_id} */}
             <div ref={this.bottom} />
           </li>
         )

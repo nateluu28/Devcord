@@ -31,5 +31,5 @@ export const deleteMessage = (messageId) => (dispatch) => {
 
 export const createMessage = (message) => (dispatch) => {
   return messageAPIUtil.createMessage(message)
-    .then(payload =>)
+    .then(payload => dispatch(recieveMessage(payload)))
 }

@@ -157,9 +157,63 @@ var deleteChannel = function deleteChannel(serverId, channel) {
   !*** ./frontend/actions/messages_actions.js ***!
   \**********************************************/
 /*! exports provided: RECEIVE_MESSAGE, RECEIVE_MESSAGES, REMOVE_MESSAGE, recieveMessage, recieveMessages, removeMessage, fetchMessages, deleteMessage, createMessage */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/nate/Documents/App_Academy/Devcord/frontend/actions/messages_actions.js: Unexpected token (34:20)\n\n\u001b[0m \u001b[90m 32 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m createMessage \u001b[33m=\u001b[39m (message) \u001b[33m=>\u001b[39m (dispatch) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 33 |\u001b[39m   \u001b[36mreturn\u001b[39m messageAPIUtil\u001b[33m.\u001b[39mcreateMessage(message)\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 34 |\u001b[39m     \u001b[33m.\u001b[39mthen(payload \u001b[33m=>\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 35 |\u001b[39m }\u001b[0m\n    at Object._raise (/Users/nate/Documents/App_Academy/Devcord/node_modules/@babel/parser/lib/index.js:810:17)\n    at Object.raiseWithData (/Users/nate/Documents/App_Academy/Devcord/node_modules/@babel/parser/lib/index.js:803:17)\n    at Object.raise (/Users/nate/Documents/App_Academy/Devcord/node_modules/@babel/parser/lib/index.js:764:17)\n    at Object.unexpected (/Users/nate/Documents/App_Academy/Devcord/node_modules/@babel/parser/lib/index.js:9980:16)\n    at Object.parseExprAtom (/Users/nate/Documents/App_Academy/Devcord/node_modules/@babel/parser/lib/index.js:11382:20)\n    at Object.parseExprAtom (/Users/nate/Documents/App_Academy/Devcord/node_modules/@babel/parser/lib/index.js:5300:20)\n    at Object.parseExprSubscripts (/Users/nate/Documents/App_Academy/Devcord/node_modules/@babel/parser/lib/index.js:10954:23)\n    at Object.parseUpdate (/Users/nate/Documents/App_Academy/Devcord/node_modules/@babel/parser/lib/index.js:10934:21)\n    at Object.parseMaybeUnary (/Users/nate/Documents/App_Academy/Devcord/node_modules/@babel/parser/lib/index.js:10912:23)\n    at Object.parseExprOps (/Users/nate/Documents/App_Academy/Devcord/node_modules/@babel/parser/lib/index.js:10769:23)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_MESSAGE", function() { return RECEIVE_MESSAGE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_MESSAGES", function() { return RECEIVE_MESSAGES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_MESSAGE", function() { return REMOVE_MESSAGE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recieveMessage", function() { return recieveMessage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recieveMessages", function() { return recieveMessages; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeMessage", function() { return removeMessage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchMessages", function() { return fetchMessages; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteMessage", function() { return deleteMessage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createMessage", function() { return createMessage; });
+/* harmony import */ var _util_message_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/message_api_util */ "./frontend/util/message_api_util.jsx");
+
+var RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
+var RECEIVE_MESSAGES = 'RECEIVE_MESSAGES';
+var REMOVE_MESSAGE = 'REMOVE_MESSAGE';
+var recieveMessage = function recieveMessage(message) {
+  return {
+    type: RECEIVE_MESSAGE,
+    message: message
+  };
+};
+var recieveMessages = function recieveMessages(messages) {
+  return {
+    type: RECEIVE_MESSAGES,
+    messages: messages
+  };
+};
+var removeMessage = function removeMessage(messageId) {
+  return {
+    type: REMOVE_MESSAGE,
+    messageId: messageId
+  };
+};
+var fetchMessages = function fetchMessages(type, messageable_id) {
+  return function (dispatch) {
+    return _util_message_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchMessages"](type, messageable_id).then(function (messages) {
+      return dispatch(recieveMessages(messages));
+    });
+  };
+};
+var deleteMessage = function deleteMessage(messageId) {
+  return function (dispatch) {
+    return _util_message_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteMessage"](messageId).then(function (messageId) {
+      return dispatch(removeMessage(messageId));
+    });
+  };
+};
+var createMessage = function createMessage(message) {
+  return function (dispatch) {
+    return _util_message_api_util__WEBPACK_IMPORTED_MODULE_0__["createMessage"](message).then(function (payload) {
+      return dispatch(recieveMessage(payload));
+    });
+  };
+};
 
 /***/ }),
 
@@ -1428,14 +1482,13 @@ var MessageBoard = /*#__PURE__*/function (_React$Component) {
         channelId: this.props.channelId
       }, {
         received: function received(data) {
-          _this2.setState({
-            // change this later for redux
-            messages: _this2.state.messages.concat(data['body'])
-          }); // console.log(data)
-          // Object.assign(data, {})
+          console.log('receive');
+          console.log(data);
 
+          _this2.props.fetchMessages('Channel', _this2.props.channelId);
         },
         speak: function speak(data) {
+          console.log('speak');
           return this.perform("speak", data);
         }
       }); // fetches messages data
@@ -1458,7 +1511,7 @@ var MessageBoard = /*#__PURE__*/function (_React$Component) {
         messageList = messages.map(function (message) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
             key: message.id
-          }, message.body, "author_id ", message.author_id, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          }, message.body, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             ref: _this3.bottom
           }));
         });
@@ -1582,13 +1635,18 @@ var MessageForm = /*#__PURE__*/function (_React$Component) {
       e.preventDefault();
       var currentChannelId = this.props.match.params.channelId;
       App.cable.subscriptions.subscriptions.forEach(function (currentSub) {
+        console.log(currentSub);
         var sub_obj = JSON.parse(currentSub.identifier);
 
         if (sub_obj.channelId === currentChannelId) {
-          currentSub.speak({
+          var message = {
             body: _this3.state.body,
             author_id: _this3.props.currentUser.id,
-            channel_id: currentChannelId
+            messageable_type: 'Channel',
+            messageable_id: currentChannelId
+          };
+          currentSub.speak({
+            message: message
           });
 
           _this3.setState({
@@ -2008,6 +2066,42 @@ var fetchChannels = function fetchChannels(serverId) {
   return $.ajax({
     method: 'GET',
     url: "api/servers/".concat(serverId, "/channels")
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/message_api_util.jsx":
+/*!********************************************!*\
+  !*** ./frontend/util/message_api_util.jsx ***!
+  \********************************************/
+/*! exports provided: fetchMessages, deleteMessage, createMessage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchMessages", function() { return fetchMessages; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteMessage", function() { return deleteMessage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createMessage", function() { return createMessage; });
+var fetchMessages = function fetchMessages(type, id) {
+  return $.ajax({
+    url: type === "Conversation" ? "api/conversation/".concat(id, "/messages") : "api/channels/".concat(id, "/messages"),
+    method: 'GET'
+  });
+};
+var deleteMessage = function deleteMessage(messageId) {
+  return $.ajax({
+    url: "api/messages/".concat(messageId),
+    method: 'DELETE'
+  });
+};
+var createMessage = function createMessage(type, id, message) {
+  return $.ajax({
+    url: type === "Conversation" ? "api/conversation/".concat(id, "/messages") : "api/channels/".concat(id, "/messages"),
+    method: 'POST',
+    data: {
+      message: message
+    }
   });
 };
 

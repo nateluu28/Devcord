@@ -7,14 +7,11 @@ class ChatChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    socket = { 
-      body: data['body'],
-      author_id: data['author_id']
-    }
-    @message = Message.create(socket)
-    debugger
-    @channel = Channel.find_by(id: data['channel_id'])
-    ChatChannel.broadcast_to(@channel, socket)
+    @message = Message.new(data['message'])
+    if @message.save
+      # @channel = Channel.find_by(id: data['messageable_id'])
+      ChatChannel.broadcast_to(@channel, data['message'])
+    end
   end
 
   def unsubscribed
