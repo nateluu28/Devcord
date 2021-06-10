@@ -1,4 +1,5 @@
 import React from 'react';
+import ChannelContainer from '../channel/channel_container';
 import GreetingContainer from '../greeting/greeting_container';
 import ServerContainer from '../server/server_container';
 
@@ -28,9 +29,9 @@ const HomePage = ({ currentUser}) => {
   const loggedPage = () => (
     <div>
       <GreetingContainer />
-      <h1>WELCOME YOU ARE LOGGED IN !</h1>
       {/* server container etc.... */}
       <ServerContainer />
+      <ChannelContainer />
     </div>
   )
 

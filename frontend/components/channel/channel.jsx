@@ -10,6 +10,7 @@ class Channel extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    console.log('did update channeljs')
     if(prevProps.serverId !== this.props.serverId){
       this.props.fetchChannels(this.props.serverId)
         .then(() => this.setState({loading: false}));

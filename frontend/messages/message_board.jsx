@@ -27,7 +27,7 @@ class MessageBoard extends React.Component {
       );
       // fetches messages data
       this.props.fetchMessages('Channel', this.props.channelId)
-      .then(() => this.setState({loading: false}));
+        .then(() => this.setState({loading: false}));
   }
 
   componentDidUpdate() {
@@ -41,8 +41,9 @@ class MessageBoard extends React.Component {
       messageList = messages.map(message => {
         return (
           <li key={message.id}>
+            <b>user{message.author_id}</b>
+            <br/>
             {message.body}
-            {/* author_id {message.author_id} */}
             <div ref={this.bottom} />
           </li>
         )
@@ -50,8 +51,8 @@ class MessageBoard extends React.Component {
     }
     return (
       <div className='message-board-container'>
-        <div>MessageBoard</div>
-        <div>{messageList}</div>
+        <div className="message-list">{messageList}
+        </div>
         <MessageFormContainer  />
       </div>
     )

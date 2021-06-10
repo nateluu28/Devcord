@@ -2,7 +2,33 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.message-board-container {
-  border: 1px solid red;
-  list-style-type: none;
+li {
+  list-style: none;
+  margin: 15px;
+}
+
+.chatroom-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.message-list {
+  overflow-y: scroll;
+  height: 90vh;
+  width: 400px;
+  background: rgb(55,57,62);
+  border: solid gray 1px;
+  color: white;
+}
+
+.message-form {
+  border: solid red 1px;
+  background: rgb(55, 57, 62);
+
+  padding: 10px;
+  input[type=text] {
+    width: 75%;
+    margin: 5px;
+  }
 }
