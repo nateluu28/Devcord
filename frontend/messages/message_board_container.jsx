@@ -1,8 +1,11 @@
 import { connect } from 'react-redux';
 
-const mSTP = ({ session, entities: { users, messages } }) => (
-  {
+import MessageBoard from './message_board';
+import { fetchMessages } from '../actions/messages_actions'
+
+const mSTP = ({ session, entities: { users, messages } }) => ({
     currentUser: users[session.id],
-    
-  }
-)
+    messages
+})
+
+export default connect(mSTP, { fetchMessages })(MessageBoard)

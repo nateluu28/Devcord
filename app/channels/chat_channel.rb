@@ -12,6 +12,7 @@ class ChatChannel < ApplicationCable::Channel
       author_id: data['author_id']
     }
     @message = Message.create(socket)
+    debugger
     @channel = Channel.find_by(id: data['channel_id'])
     ChatChannel.broadcast_to(@channel, socket)
   end

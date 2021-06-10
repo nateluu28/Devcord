@@ -10,7 +10,7 @@ export const recieveMessage = message => ({
 });
 
 export const recieveMessages = messages => ({
-  type: RECEIVE_MESSAGE,
+  type: RECEIVE_MESSAGES,
   messages
 });
 
@@ -20,11 +20,16 @@ export const removeMessage = (messageId) => ({
 });
 
 export const fetchMessages = (type, messageable_id) => (dispatch) => {
-  messageAPIUtil.fetchMessages(type, messageable_id)
+  return messageAPIUtil.fetchMessages(type, messageable_id)
     .then(messages => dispatch(recieveMessages(messages)));
 }
 
 export const deleteMessage = (messageId) => (dispatch) => {
-  messageAPIUtil.deleteMessage(messageId)
+  return messageAPIUtil.deleteMessage(messageId)
     .then(messageId => dispatch(removeMessage(messageId)));
+}
+
+export const createMessage = (message) => (dispatch) => {
+  return messageAPIUtil.createMessage(message)
+    .then(payload =>)
 }

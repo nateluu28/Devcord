@@ -156,56 +156,10 @@ var deleteChannel = function deleteChannel(serverId, channel) {
 /*!**********************************************!*\
   !*** ./frontend/actions/messages_actions.js ***!
   \**********************************************/
-/*! exports provided: RECEIVE_MESSAGE, RECEIVE_MESSAGES, REMOVE_MESSAGE, recieveMessage, recieveMessages, removeMessage, fetchMessages, deleteMessage */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! exports provided: RECEIVE_MESSAGE, RECEIVE_MESSAGES, REMOVE_MESSAGE, recieveMessage, recieveMessages, removeMessage, fetchMessages, deleteMessage, createMessage */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_MESSAGE", function() { return RECEIVE_MESSAGE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_MESSAGES", function() { return RECEIVE_MESSAGES; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_MESSAGE", function() { return REMOVE_MESSAGE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recieveMessage", function() { return recieveMessage; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recieveMessages", function() { return recieveMessages; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeMessage", function() { return removeMessage; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchMessages", function() { return fetchMessages; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteMessage", function() { return deleteMessage; });
-/* harmony import */ var _util_message_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/message_api_util */ "./frontend/util/message_api_util.jsx");
-
-var RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
-var RECEIVE_MESSAGES = 'RECEIVE_MESSAGES';
-var REMOVE_MESSAGE = 'REMOVE_MESSAGE';
-var recieveMessage = function recieveMessage(message) {
-  return {
-    type: RECEIVE_MESSAGE,
-    message: message
-  };
-};
-var recieveMessages = function recieveMessages(messages) {
-  return {
-    type: RECEIVE_MESSAGE,
-    messages: messages
-  };
-};
-var removeMessage = function removeMessage(messageId) {
-  return {
-    type: REMOVE_MESSAGE,
-    messageId: messageId
-  };
-};
-var fetchMessages = function fetchMessages(type, messageable_id) {
-  return function (dispatch) {
-    _util_message_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchMessages"](type, messageable_id).then(function (messages) {
-      return dispatch(recieveMessages(messages));
-    });
-  };
-};
-var deleteMessage = function deleteMessage(messageId) {
-  return function (dispatch) {
-    _util_message_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteMessage"](messageId).then(function (messageId) {
-      return dispatch(removeMessage(messageId));
-    });
-  };
-};
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/nate/Documents/App_Academy/Devcord/frontend/actions/messages_actions.js: Unexpected token (34:20)\n\n\u001b[0m \u001b[90m 32 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m createMessage \u001b[33m=\u001b[39m (message) \u001b[33m=>\u001b[39m (dispatch) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 33 |\u001b[39m   \u001b[36mreturn\u001b[39m messageAPIUtil\u001b[33m.\u001b[39mcreateMessage(message)\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 34 |\u001b[39m     \u001b[33m.\u001b[39mthen(payload \u001b[33m=>\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 35 |\u001b[39m }\u001b[0m\n    at Object._raise (/Users/nate/Documents/App_Academy/Devcord/node_modules/@babel/parser/lib/index.js:810:17)\n    at Object.raiseWithData (/Users/nate/Documents/App_Academy/Devcord/node_modules/@babel/parser/lib/index.js:803:17)\n    at Object.raise (/Users/nate/Documents/App_Academy/Devcord/node_modules/@babel/parser/lib/index.js:764:17)\n    at Object.unexpected (/Users/nate/Documents/App_Academy/Devcord/node_modules/@babel/parser/lib/index.js:9980:16)\n    at Object.parseExprAtom (/Users/nate/Documents/App_Academy/Devcord/node_modules/@babel/parser/lib/index.js:11382:20)\n    at Object.parseExprAtom (/Users/nate/Documents/App_Academy/Devcord/node_modules/@babel/parser/lib/index.js:5300:20)\n    at Object.parseExprSubscripts (/Users/nate/Documents/App_Academy/Devcord/node_modules/@babel/parser/lib/index.js:10954:23)\n    at Object.parseUpdate (/Users/nate/Documents/App_Academy/Devcord/node_modules/@babel/parser/lib/index.js:10934:21)\n    at Object.parseMaybeUnary (/Users/nate/Documents/App_Academy/Devcord/node_modules/@babel/parser/lib/index.js:10912:23)\n    at Object.parseExprOps (/Users/nate/Documents/App_Academy/Devcord/node_modules/@babel/parser/lib/index.js:10769:23)");
 
 /***/ }),
 
@@ -556,7 +510,7 @@ var mSTP = function mSTP(_ref) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _messages_message_board__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../messages/message_board */ "./frontend/messages/message_board.jsx");
+/* harmony import */ var _messages_message_board_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../messages/message_board_container */ "./frontend/messages/message_board_container.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -596,7 +550,7 @@ var ChannelItem = /*#__PURE__*/function (_React$Component) {
   _createClass(ChannelItem, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "channel item ", this.props.match.params.channelId), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_messages_message_board__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "channel item ", this.props.match.params.channelId), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_messages_message_board_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
         channelId: this.props.match.params.channelId
       }));
     }
@@ -1456,7 +1410,8 @@ var MessageBoard = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      messages: []
+      messages: [],
+      loading: true
     };
     _this.bottom = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef();
     return _this;
@@ -1476,25 +1431,39 @@ var MessageBoard = /*#__PURE__*/function (_React$Component) {
           _this2.setState({
             // change this later for redux
             messages: _this2.state.messages.concat(data['body'])
-          });
+          }); // console.log(data)
+          // Object.assign(data, {})
+
         },
         speak: function speak(data) {
           return this.perform("speak", data);
         }
       }); // fetches messages data
+
+      this.props.fetchMessages('Channel', this.props.channelId).then(function () {
+        return _this2.setState({
+          loading: false
+        });
+      });
     }
   }, {
     key: "render",
     value: function render() {
       var _this3 = this;
 
-      var messageList = this.state.messages.map(function (message) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          key: message.id
-        }, message, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          ref: _this3.bottom
-        }));
-      });
+      var messageList;
+
+      if (!this.props.loading) {
+        var messages = Object.values(this.props.messages);
+        messageList = messages.map(function (message) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+            key: message.id
+          }, message.body, "author_id ", message.author_id, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            ref: _this3.bottom
+          }));
+        });
+      }
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "MessageBoard"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, messageList), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_message_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], null));
     }
   }]);
@@ -1503,6 +1472,39 @@ var MessageBoard = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (MessageBoard);
+
+/***/ }),
+
+/***/ "./frontend/messages/message_board_container.jsx":
+/*!*******************************************************!*\
+  !*** ./frontend/messages/message_board_container.jsx ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _message_board__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./message_board */ "./frontend/messages/message_board.jsx");
+/* harmony import */ var _actions_messages_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/messages_actions */ "./frontend/actions/messages_actions.js");
+
+
+
+
+var mSTP = function mSTP(_ref) {
+  var session = _ref.session,
+      _ref$entities = _ref.entities,
+      users = _ref$entities.users,
+      messages = _ref$entities.messages;
+  return {
+    currentUser: users[session.id],
+    messages: messages
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, {
+  fetchMessages: _actions_messages_actions__WEBPACK_IMPORTED_MODULE_2__["fetchMessages"]
+})(_message_board__WEBPACK_IMPORTED_MODULE_1__["default"]));
 
 /***/ }),
 
@@ -2008,41 +2010,6 @@ var fetchChannels = function fetchChannels(serverId) {
     url: "api/servers/".concat(serverId, "/channels")
   });
 };
-
-/***/ }),
-
-/***/ "./frontend/util/message_api_util.jsx":
-/*!********************************************!*\
-  !*** ./frontend/util/message_api_util.jsx ***!
-  \********************************************/
-/*! exports provided: fetchMessages, deleteMessage */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchMessages", function() { return fetchMessages; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteMessage", function() { return deleteMessage; });
-var fetchMessages = function fetchMessages(type, id) {
-  return $.ajax({
-    url: type === "Conversation" ? "api/conversation/".concat(id, "/messages") : "api/channels/".concat(id, "/messages"),
-    method: 'GET'
-  });
-};
-var deleteMessage = function deleteMessage(messageId) {
-  return $.ajax({
-    url: "api/messages/".concat(messageId),
-    method: 'DELETE'
-  });
-}; // export const createMessage = (type, id, message) => (
-//   $.ajax({
-//     url:
-//       type === "Conversation" ?
-//         `api/conversation/${id}/messages` :
-//         `api/channels/${id}/messages`,
-//     method: 'POST',
-//     data: { message }
-//   })
-// )
 
 /***/ }),
 

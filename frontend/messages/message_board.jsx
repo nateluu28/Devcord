@@ -5,7 +5,8 @@ class MessageBoard extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      messages: []
+      messages: [],
+      loading: true
     };
     this.bottom = React.createRef();
   }
@@ -20,6 +21,8 @@ class MessageBoard extends React.Component {
             // change this later for redux
             messages: this.state.messages.concat(data['body'])
           });
+          // console.log(data)
+          // Object.assign(data, {})
         },
         speak: function(data) {
           return this.perform("speak", data);
@@ -27,18 +30,24 @@ class MessageBoard extends React.Component {
       }
     );
     // fetches messages data
+    this.props.fetchMessages('Channel', this.props.channelId)
+      .then(() => this.setState({loading: false}));
   }
 
-
   render() {
-    const messageList = this.state.messages.map(message => {
-      return (
-        <li key={message.id}>
-          {message}
-          <div ref={this.bottom} />
-        </li>
-      )
-    });
+    let messageList;
+    if (!this.props.loading) {
+      let messages = Object.values(this.props.messages);
+      messageList = messages.map(message => {
+        return (
+          <li key={message.id}>
+            {message.body}
+            author_id {message.author_id}
+            <div ref={this.bottom} />
+          </li>
+        )
+      });
+    }
     return (
       <div>
         <div>MessageBoard</div>
