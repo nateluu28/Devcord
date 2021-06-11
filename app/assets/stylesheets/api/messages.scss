@@ -7,6 +7,10 @@ li {
   margin: 15px;
 }
 
+.message-board-container {
+  width: 1000px;
+}
+
 .chatroom-container {
   display: flex;
   flex-direction: column;
@@ -14,21 +18,30 @@ li {
 }
 
 .message-list {
+  height: 92vh;
   overflow-y: scroll;
-  height: 90vh;
-  width: 400px;
-  background: rgb(55,57,62);
-  border: solid gray 1px;
+  width: 100%;
   color: white;
+
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
 }
 
 .message-form {
-  border: solid red 1px;
-  background: rgb(55, 57, 62);
 
-  padding: 10px;
+  padding: 5px;
+  text-align:center;
   input[type=text] {
-    width: 75%;
+    width: 95%;
     margin: 5px;
+    background-color: rgb(64,68,75);
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+  }
+  input[type=submit] {
+    visibility: hidden;
   }
 }

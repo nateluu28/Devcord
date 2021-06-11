@@ -55,7 +55,7 @@ class LoginForm extends React.Component {
   render (){
     return (
       <div className="session-container">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="session-form">
           <span className='welcome-span'>Welcome back!</span><br></br>
           <span className='secondary-welcome-span'>We're so excited to see you again!</span>
           {this.renderErrors()}

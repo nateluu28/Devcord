@@ -4,5 +4,15 @@
 
 
 .server-list {
-  border: blue solid 1px;
+  a {
+    color: white;
+    background-color: grey;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    display: inline-block;
+    text-align: center;
+    font-size: 10px;
+  }
 }

@@ -1,3 +1,4 @@
+
 module Messageable 
   extend ActiveSupport::Concern
 

@@ -1,3 +1,20 @@
 // Place all the styles related to the api/Channels controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.chat-room {
+  box-sizing: border-box;
+  display: flex;
+  height: 100vh;
+  background: rgb(55, 57, 62);
+
+}
+
+.channel-list {
+  display: flex;
+  flex-direction: column;
+  a {
+    color: grey;
+  }
+}

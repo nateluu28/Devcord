@@ -10,11 +10,14 @@ class Channel extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log('did update channeljs')
     if(prevProps.serverId !== this.props.serverId){
       this.props.fetchChannels(this.props.serverId)
         .then(() => this.setState({loading: false}));
     }
+  }
+  componentDidMount(){
+    this.props.fetchChannels(this.props.serverId)
+        .then(() => this.setState({loading: false}));
   }
 
 
@@ -33,11 +36,8 @@ class Channel extends React.Component {
     }
 
     return (
-      <div>
-        <span>
-          channels!
-          {channelNames}
-        </span>
+      <div className='channel-list'>
+        {channelNames}
       </div>
     )
   }

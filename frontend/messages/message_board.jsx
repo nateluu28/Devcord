@@ -1,5 +1,6 @@
 import React from 'react';
 import MessageFormContainer from './message_form_container';
+import { withRouter } from 'react-router-dom';
 
 class MessageBoard extends React.Component {
   constructor(props){
@@ -26,15 +27,22 @@ class MessageBoard extends React.Component {
       }
       );
       // fetches messages data
-      this.props.fetchMessages('Channel', this.props.channelId)
+      this.props.fetchMessages('Channel', this.props.match.params.channelId)
         .then(() => this.setState({loading: false}));
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.channelId !== this.props.match.params.channelId){
+      console.log('called');
+      console.log(this.props);
+      this.props.fetchMessages('Channel', this.props.match.params.channelId);
+      console.log(this.props);
+    }
     this.bottom.current.scrollIntoView();
   }
 
   render() {
+    console.log(this.props.match.params.channelId);
     let messageList;
     if (!this.props.loading) {
       let messages = Object.values(this.props.messages);
@@ -59,4 +67,4 @@ class MessageBoard extends React.Component {
   }
 }
 
-export default MessageBoard;
+export default withRouter(MessageBoard);
