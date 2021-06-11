@@ -72,5 +72,19 @@
 .session-form {
   display: flex;
   flex-direction: column;
-  
+
 }
+
+.session-background {
+  position: absolute;
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url(https://i.imgur.com/G3U4caD.png);
+  background: url(https://i.imgur.com/G3U4caD.png)no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+

@@ -41,32 +41,34 @@ class SignupForm extends React.Component {
 
   render (){
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          Welcome to Devcord!
-          {this.renderErrors()}
-          <label>Email:
+      <div className="session-background">
+        <div className="session-container">
+          <form onSubmit={this.handleSubmit}>
+            Welcome to Devcord!
+            {this.renderErrors()}
+            <label>Email:
+                <input type="text"
+                  value={this.state.email}
+                  onChange={this.update('email')}
+                />
+            </label>
+              <br/>
+            <label>Username:
               <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
+                value={this.state.username}
+                onChange={this.update('username')}
               />
-          </label>
-            <br/>
-          <label>Username:
-            <input type="text"
-              value={this.state.username}
-              onChange={this.update('username')}
-            />
-          </label>
-            <br/>
-          <label>Password:
-            <input type="password"
-              value={this.state.password}
-              onChange={this.update('password')}
-            />
-          </label>
-          <input type="submit" value={this.props.formType} />
-        </form>
+            </label>
+              <br/>
+            <label>Password:
+              <input type="password"
+                value={this.state.password}
+                onChange={this.update('password')}
+              />
+            </label>
+            <input type="submit" value={this.props.formType} />
+          </form>
+        </div>
       </div>
     )
   }

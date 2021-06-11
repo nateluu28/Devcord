@@ -54,30 +54,33 @@ class LoginForm extends React.Component {
 
   render (){
     return (
-      <div className="session-container">
-        <form onSubmit={this.handleSubmit} className="session-form">
-          <span className='welcome-span'>Welcome back!</span><br></br>
-          <span className='secondary-welcome-span'>We're so excited to see you again!</span>
-          {this.renderErrors()}
-          <label>EMAIL OR PHONE NUMBER<br></br>
-              <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
+      <div className="session-background">
+        <div className="session-container">
+          <form onSubmit={this.handleSubmit} className="session-form">
+            <span className='welcome-span'>Welcome back!</span><br></br>
+            <span className='secondary-welcome-span'>We're so excited to see you again!</span>
+            {this.renderErrors()}
+            <label>EMAIL OR PHONE NUMBER<br></br>
+                <input type="text"
+                  value={this.state.email}
+                  onChange={this.update('email')}
+                />
+            </label>
+              <br/>
+            <label>PASSWORD<br></br>
+              <input type="password"
+                value={this.state.password}
+                onChange={this.update('password')}
               />
-          </label>
-            <br/>
-          <label>PASSWORD<br></br>
-            <input type="password"
-              value={this.state.password}
-              onChange={this.update('password')}
-            />
-          </label>
-          <br></br>
-          <input className='session-button' type="submit" value={this.props.formType} />
-          <input className='demo-button' type="submit" value='Demo Login' onClick={this.setDemoLogin} />
+            </label>
+            <br></br>
+            <input className='session-button' type="submit" value={this.props.formType} />
+            <br></br>
+            <input className='session-button' type="submit" value='Demo Login' onClick={this.setDemoLogin} />
 
-          <span>Need an account? <Link to="/signup">Register</Link> </span>
-        </form>
+            <span>Need an account? <Link to="/signup">Register</Link> </span>
+          </form>
+        </div>
       </div>
     )
   }
