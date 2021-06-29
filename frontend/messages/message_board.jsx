@@ -14,6 +14,8 @@ class MessageBoard extends React.Component {
 
   componentDidMount() {
     // creates a subscription to the specific action cable
+    console.log('mounted')
+    // console.log(App.cable.subscriptions)
     App.cable.subscriptions.create(
       { channel: "ChatChannel", channelId: this.props.channelId },
       {
@@ -29,14 +31,27 @@ class MessageBoard extends React.Component {
       // fetches messages data
       this.props.fetchMessages('Channel', this.props.match.params.channelId)
         .then(() => this.setState({loading: false}));
-  }
+      }
+      
+      componentDidUpdate(prevProps) {
+        if (prevProps.match.params.channelId !== this.props.match.params.channelId){
+          console.log(App.cable.subscriptions.subscriptions.indentfiers);
+          const identifier = App.cable.subscriptions.subscriptions.map(subs => JSON.parse(subs.identifier));
+          console.log(identifier.channelId)
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.match.params.channelId !== this.props.match.params.channelId){
-      console.log('called');
-      console.log(this.props);
+      // App.cable.subscriptions.create(
+      // { channel: "ChatChannel", channelId: this.props.channelId },
+      // {
+      //   received: data => {
+      //     this.props.fetchMessages('Channel', this.props.channelId)
+          
+      //   },
+      //   speak: function(data) {
+      //     return this.perform("speak", data);
+      //   }
+      // }
+      // );
       this.props.fetchMessages('Channel', this.props.match.params.channelId);
-      console.log(this.props);
     }
     this.bottom.current.scrollIntoView();
   }
@@ -59,7 +74,8 @@ class MessageBoard extends React.Component {
     }
     return (
       <div className='message-board-container'>
-        <div className="message-list">{messageList}
+        <div className="message-list">
+          {messageList}
         </div>
         <MessageFormContainer  />
       </div>

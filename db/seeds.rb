@@ -52,6 +52,26 @@ channel3 = Channel.create!(
   server_id: server2.id
   )
 
+channel4 = Channel.create!(
+  name: 'textChannel4',
+  server_id: server2.id
+  )
+
+channel5 = Channel.create!(
+  name: 'general',
+  server_id: server2.id
+  )
+
+channel6 = Channel.create!(
+  name: 'general discussion',
+  server_id: server1.id
+  )
+
+channel7 = Channel.create!(
+  name: 'funny',
+  server_id: server2.id
+  )
+
 message1 = Message.create!(
   body: 'Hello!',
   messageable: channel1,
@@ -59,3 +79,4 @@ message1 = Message.create!(
 )
 
 # CREATE MORE MESSAGES AND CREATE MORE CONVERSATIONS
+

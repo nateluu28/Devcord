@@ -1194,8 +1194,8 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
         className: "session-button",
         type: "submit",
         value: this.props.formType
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        className: "demo-button",
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "session-button",
         type: "submit",
         value: "Demo Login",
         onClick: this.setDemoLogin
@@ -1515,6 +1515,8 @@ var MessageBoard = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       // creates a subscription to the specific action cable
+      console.log('mounted'); // console.log(App.cable.subscriptions)
+
       App.cable.subscriptions.create({
         channel: "ChatChannel",
         channelId: this.props.channelId
@@ -1537,10 +1539,23 @@ var MessageBoard = /*#__PURE__*/function (_React$Component) {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
       if (prevProps.match.params.channelId !== this.props.match.params.channelId) {
-        console.log('called');
-        console.log(this.props);
+        console.log(App.cable.subscriptions.subscriptions.indentfiers);
+        var identifier = App.cable.subscriptions.subscriptions.map(function (subs) {
+          return JSON.parse(subs.identifier);
+        });
+        console.log(identifier.channelId); // App.cable.subscriptions.create(
+        // { channel: "ChatChannel", channelId: this.props.channelId },
+        // {
+        //   received: data => {
+        //     this.props.fetchMessages('Channel', this.props.channelId)
+        //   },
+        //   speak: function(data) {
+        //     return this.perform("speak", data);
+        //   }
+        // }
+        // );
+
         this.props.fetchMessages('Channel', this.props.match.params.channelId);
-        console.log(this.props);
       }
 
       this.bottom.current.scrollIntoView();
@@ -1684,9 +1699,10 @@ var MessageForm = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       e.preventDefault();
+      console.log('submit');
+      console.log(App.cable.subscriptions);
       var currentChannelId = this.props.match.params.channelId;
       App.cable.subscriptions.subscriptions.forEach(function (currentSub) {
-        console.log(currentSub);
         var sub_obj = JSON.parse(currentSub.identifier);
 
         if (sub_obj.channelId === currentChannelId) {
