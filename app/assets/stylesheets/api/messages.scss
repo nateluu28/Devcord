@@ -9,6 +9,7 @@ li {
 
 .message-board-container {
   width: 1000px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .chatroom-container {
@@ -23,15 +24,26 @@ li {
   overflow-y: scroll;
   width: 100%;
   color: white;
+  background-color: rgb(64, 68, 75);
+  
+  &::-webkit-scrollbar {
+    background-color: rgb(54,57,63);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgb(46,51,56);
+    border-radius: 5px;
+  }
 
+  &::-webkit-scrollbar-track {
+    border: 4px solid transparent;
+    background-clip: padding-box;
+    border-radius: 8px;
+  }
 }
 
-::-webkit-scrollbar-thumb {
-  background: #FF0000;
-}
 
 .message-form {
-
+  background-color: rgb(64, 68, 75);
   padding: 5px;
   text-align:center;
   input[type=text] {
