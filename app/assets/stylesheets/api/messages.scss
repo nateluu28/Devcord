@@ -8,8 +8,8 @@ li {
 }
 
 .message-board-container {
-  width: 1000px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  width: 1400px;
+  border: 1px solid red;
 }
 
 .chatroom-container {
@@ -27,8 +27,8 @@ li {
   background-color: rgb(64, 68, 75);
   
   &::-webkit-scrollbar {
-    background-color: rgb(54,57,63);
-  }
+    background-color: #40444b;
+}
   &::-webkit-scrollbar-thumb {
     background: rgb(46,51,56);
     border-radius: 5px;
@@ -43,19 +43,28 @@ li {
 
 
 .message-form {
-  background-color: rgb(64, 68, 75);
-  padding: 5px;
+  // background-color: rgb(64, 68, 75);
   text-align:center;
+  margin: auto;
+  display: block;
   input[type=text] {
     width: 95%;
-    margin: 5px;
+    margin: 10px;
     background-color: rgb(64,68,75);
     padding: 15px;
     border-radius: 5px;
     color: white;
+    border: none;
+    outline: none;
   }
   input[type=submit] {
     visibility: hidden;
   }
 }
 
+.messageItem {
+  padding: 5px 10px;
+  &:hover {
+    background-color: rgb(51,53,58);
+  }
+}

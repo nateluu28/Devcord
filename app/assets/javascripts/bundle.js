@@ -1563,27 +1563,33 @@ var MessageBoard = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
-
       console.log(this.props.match.params.channelId);
       var messageList;
 
       if (!this.props.loading) {
         var messages = Object.values(this.props.messages);
-        messageList = messages.map(function (message) {
-          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-            key: message.id
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "user", message.author_id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), message.body, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            ref: _this3.bottom
-          }));
-        });
+        messageList = messages.slice(1).reduce(function (acc, message) {
+          var lastMessage = acc[acc.length - 1];
+        }); // messageList = messages.map(message => {
+        //   return (
+        //     <li 
+        //       key={message.id}
+        //       className="messageItem"
+        //       >
+        //       <b>user{message.author_id}</b>
+        //       <br/>
+        //       {message.body}
+        //       <div ref={this.bottom} />
+        //     </li>
+        //   )
+        // });
       }
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "message-board-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "message-list"
-      }, messageList), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_message_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+      }, " ", messageList, " "), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_message_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], null));
     }
   }]);
 
