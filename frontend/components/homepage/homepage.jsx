@@ -2,6 +2,7 @@ import React from 'react';
 import ChannelContainer from '../channel/channel_container';
 import GreetingContainer from '../greeting/greeting_container';
 import ServerContainer from '../server/server_container';
+import { Link } from 'react-router-dom';
 
 const HomePage = ({ currentUser}) => {
   const splashPage = () => (
@@ -19,8 +20,10 @@ const HomePage = ({ currentUser}) => {
             easy to talk every day and hang out more often.
           </span>
           <div className='header-buttons'>
-            <a href='#'>Download for Mac</a>
-            <a href='#'>Open Discord in your Browser</a>
+            <Link to="/login">Login</Link>
+            <Link to="/signup">Sign up Today!</Link>
+            {/* <a href='#'>Login</a>
+            <a href='#'>Sign up Today!</a> */}
           </div>
         </div>
     </div>

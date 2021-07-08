@@ -668,19 +668,23 @@ var Greeting = function Greeting(_ref) {
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "DEVCORD"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "header-links"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      href: "#"
-    }, "Download"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      href: "#"
-    }, "Nitro"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      href: "#"
-    }, "Safety"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      href: "#"
-    }, "Support")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      href: "https://github.com/nateluu28/Devcord/",
+      target: "_blank"
+    }, "Github"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      href: "https://www.linkedin.com/in/nathan-luu/",
+      target: "_blank"
+    }, "LinkedIn"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      href: "https://angel.co/u/nathan-luu-1",
+      target: "_blank"
+    }, "Angelist"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      href: "#",
+      target: "_blank"
+    }, "TODOResume")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       onClick: function onClick() {
         return history.push("/login");
       },
       className: "home-login-button"
-    }, "Login"));
+    }, "Open Devcord"));
   };
 
   var personalGreeting = function personalGreeting() {
@@ -740,6 +744,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _channel_channel_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../channel/channel_container */ "./frontend/components/channel/channel_container.jsx");
 /* harmony import */ var _greeting_greeting_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../greeting/greeting_container */ "./frontend/components/greeting/greeting_container.jsx");
 /* harmony import */ var _server_server_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../server/server_container */ "./frontend/components/server/server_container.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
 
 
 
@@ -755,11 +761,11 @@ var HomePage = function HomePage(_ref) {
       className: "header-message"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "IMAGINE A PLACE..."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "...where you can belong to a school club, a gaming group, or a worldwide art community. Where just you and a handful of friends can spend time together. A place that makes it easy to talk every day and hang out more often."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "header-buttons"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      href: "#"
-    }, "Download for Mac"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      href: "#"
-    }, "Open Discord in your Browser"))));
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+      to: "/login"
+    }, "Login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+      to: "/signup"
+    }, "Sign up Today!"))));
   };
 
   var loggedPage = function loggedPage() {
@@ -1201,7 +1207,11 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
         onClick: this.setDemoLogin
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Need an account? ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/signup"
-      }, "Register"), " "))));
+      }, "Register"), " ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "qr-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://i.imgur.com/BmSfNzx.png"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Log In with QR Code"))));
     }
   }]);
 
@@ -1533,7 +1543,7 @@ var MessageBoard = /*#__PURE__*/function (_React$Component) {
         return _this2.setState({
           loading: false
         });
-      });
+      }); // .then(this.bottom.current.scrollIntoView());
     }
   }, {
     key: "componentDidUpdate",
@@ -1555,41 +1565,62 @@ var MessageBoard = /*#__PURE__*/function (_React$Component) {
         // }
         // );
 
-        this.props.fetchMessages('Channel', this.props.match.params.channelId);
+        this.props.fetchMessages('Channel', this.props.match.params.channelId); // .then(this.bottom.current.scrollIntoView());
       }
+    } // componentWillUnmount() {
+    //   if (App.room) {
+    //     App.cable.subscriptions.remove(this.props.match.params.channelId);
+    // }
 
-      this.bottom.current.scrollIntoView();
-    }
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       console.log(this.props.match.params.channelId);
       var messageList;
 
       if (!this.props.loading) {
         var messages = Object.values(this.props.messages);
-        messageList = messages.slice(1).reduce(function (acc, message) {
-          var lastMessage = acc[acc.length - 1];
-        }); // messageList = messages.map(message => {
-        //   return (
-        //     <li 
-        //       key={message.id}
-        //       className="messageItem"
-        //       >
-        //       <b>user{message.author_id}</b>
-        //       <br/>
-        //       {message.body}
-        //       <div ref={this.bottom} />
-        //     </li>
-        //   )
-        // });
-      }
+        messageList = messages.map(function (message) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+            key: message.id
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "user", message.author_id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), message.body, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            ref: _this3.bottom
+          }));
+        });
+      } // const firstMessage = messages[0];
+      // messageList = messages.slice(1).reduce((acc, currMessage) => {
+      //   let lastMessages = acc[acc.length - 1];
+      //   let lastMessage = lastMessages[lastMessages.length - 1];
+      //   if (lastMessage.author_id === currMessage.author_id) {
+      //     lastMessages.push(currMessage);
+      //     acc[acc.length - 1] = lastMessages;
+      //   } else {
+      //     acc.push([currMessage]);
+      //   }
+      //   return acc;
+      // }, [
+      //   [firstMessage]
+      // ]);
+      // // console.log(messageList);
+      // let messageRender = messageList.map((group) => {
+      //   return (
+      //     <div>
+      //       {this.renderMessages}
+      //     </div>
+      //   );
+      // });
+      // return ( 
+      // <div>{messageRender}</div>
+      // )
+
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "message-board-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "message-list"
-      }, " ", messageList, " "), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_message_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+      }, messageList), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_message_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], null));
     }
   }]);
 

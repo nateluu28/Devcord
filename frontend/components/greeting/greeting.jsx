@@ -8,15 +8,15 @@ const Greeting = ({ currentUser, logout }) => {
     <div className="header-container">
       <span>DEVCORD</span>
       <div className="header-links">
-        <a href='#'>Download</a>
-        <a href='#'>Nitro</a>
-        <a href='#'>Safety</a>
-        <a href='#'>Support</a>
+        <a href='https://github.com/nateluu28/Devcord/' target="_blank">Github</a>
+        <a href='https://www.linkedin.com/in/nathan-luu/' target="_blank">LinkedIn</a>
+        <a href='https://angel.co/u/nathan-luu-1' target="_blank">Angelist</a>
+        <a href='#' target="_blank">TODOResume</a>
       </div>
         <button 
           onClick={()=> history.push("/login")} 
           className="home-login-button">
-          Login
+          Open Devcord
         </button>
     </div>
   );

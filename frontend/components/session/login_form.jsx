@@ -80,6 +80,10 @@ class LoginForm extends React.Component {
 
             <span>Need an account? <Link to="/signup">Register</Link> </span>
           </form>
+        <div className="qr-container">
+          <img src="https://i.imgur.com/BmSfNzx.png"></img>
+          <h1>Log In with QR Code</h1>
+        </div>
         </div>
       </div>
     )

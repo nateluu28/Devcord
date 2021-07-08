@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.homepage{
+.homepage {
   background-image: url(https://i.imgur.com/DOtvcDs.png);
   height: 600px;
   width: 100%;
@@ -20,11 +20,11 @@
   box-sizing: border-box;
   width: 100%;
   font-size: 30px;
-  padding:10px;
-
+  padding: 10px 190px;
+  align-items: center;
 }
 
-.header-links{
+.header-links {
   display: flex;
   justify-content: space-around;
   a {
@@ -55,15 +55,18 @@
   display: flex;
   justify-content: space-between;
   a {
+    font-weight: 600;
     margin: 30px;
     padding: 15px;
     border-radius: 30px;
+    text-align: center;
     &:first-child {
       background-color: white;
       color: black;
+      width: 100px;
     }
     &:last-child {
-      background-color: #36393F;
+      background-color: #36393f;
       color: white;
     }
   }
@@ -72,7 +75,7 @@
 .session-form {
   display: flex;
   flex-direction: column;
-
+  width: 350px;
 }
 
 .session-background {
@@ -81,10 +84,18 @@
   height: 100%;
   width: 100%;
   background-image: url(https://i.imgur.com/G3U4caD.png);
-  background: url(https://i.imgur.com/G3U4caD.png)no-repeat center center fixed;
+  background: url(https://i.imgur.com/G3U4caD.png) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 
+.home-login-button {
+  padding: 7px 16px;
+  border-radius: 40px;
+  border: none;
+  text-align: center;
+  font-size: 14px;
+  height: 40px;
+}
