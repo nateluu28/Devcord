@@ -8,7 +8,9 @@
   border-radius: 10px;
   color: rgb(142, 146, 151);
   & input {
+    box-sizing: border-box;
     width: 100%;
+    padding: 10px;
   }
   & > * {
     margin: 5px;
@@ -24,13 +26,15 @@
 
   input[type="submit"] {
     text-align: center;
-    margin: 5px;
-    padding: 5px;
+    padding: 8px;
+    border-radius: 2px;
   }
 }
 
 .welcome-span {
   color: #fff;
+  font-size: 30px;
+  font-weight: 600;
 }
 
 .session-button {
@@ -48,4 +52,15 @@
     color: white;
     font-size: 30px;
   }
+}
+
+.demo-button {
+  background-color: #e559ff;
+}
+
+.login-button {
+  margin-top: 20px;
+}
+
+.signup-form {
 }

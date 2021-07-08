@@ -43,8 +43,8 @@ class SignupForm extends React.Component {
     return (
       <div className="session-background">
         <div className="session-container">
-          <form onSubmit={this.handleSubmit}>
-            Welcome to Devcord!
+          <form onSubmit={this.handleSubmit} className="signup-form">
+            <h2>Create an account</h2>
             {this.renderErrors()}
             <label>Email:
                 <input type="text"
