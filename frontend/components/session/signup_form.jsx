@@ -41,8 +41,8 @@ class SignupForm extends React.Component {
 
   render (){
     return (
-      <div className="session-background">
-        <div className="session-container">
+      <div className="signup-background">
+        <div className="signup-container">
           <form onSubmit={this.handleSubmit} className="signup-form">
             <h2>Create an account</h2>
             {this.renderErrors()}

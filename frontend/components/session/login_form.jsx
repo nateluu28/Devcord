@@ -54,7 +54,7 @@ class LoginForm extends React.Component {
 
   render (){
     return (
-      <div className="session-background">
+      <div className="login-background">
         <div className="session-container">
           <form onSubmit={this.handleSubmit} className="session-form">
             <span className='welcome-span'>Welcome back!</span>
