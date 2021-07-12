@@ -1,7 +1,7 @@
 import React from 'react';
 import ChannelContainer from '../channel/channel_container';
-import GreetingContainer from '../greeting/greeting_container';
 import ServerContainer from '../server/server_container';
+import GreetingContainer from '../greeting/greeting_container';
 import { Link } from 'react-router-dom';
 
 const HomePage = ({ currentUser}) => {
@@ -22,8 +22,6 @@ const HomePage = ({ currentUser}) => {
           <div className='header-buttons'>
             <Link to="/login">Login</Link>
             <Link to="/signup">Sign up Today!</Link>
-            {/* <a href='#'>Login</a>
-            <a href='#'>Sign up Today!</a> */}
           </div>
         </div>
     </div>
@@ -31,10 +29,9 @@ const HomePage = ({ currentUser}) => {
 
   const loggedPage = () => (
     <div>
-      <GreetingContainer />
-      {/* server container etc.... */}
-      <ServerContainer />
+      {/* <GreetingContainer /> */}
       <ChannelContainer />
+      <ServerContainer />
     </div>
   )
 
