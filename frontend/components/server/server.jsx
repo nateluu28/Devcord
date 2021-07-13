@@ -33,8 +33,8 @@ class Server extends React.Component {
     return (
       <div className='server-list'>
         <ul>
-        <li><Link to="/">Home</Link></li>
-        {serverNames}
+          <li><Link to="/">Home</Link></li>
+          {serverNames}
         </ul>
       </div>
     )
