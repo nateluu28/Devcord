@@ -28,10 +28,19 @@ const HomePage = ({ currentUser}) => {
   );
 
   const loggedPage = () => (
-    <div>
-      {/* <GreetingContainer /> */}
-      <ChannelContainer />
+    <div className="home-page">
       <ServerContainer />
+      <div className="channel-list">
+        <h3>Home</h3>
+      </div>
+      <div>
+        <p>
+          Welcome to Devcord! This is a place where you can connect and message 
+          with other developers with simliar tastes! Feel free to join other servers
+          and message through the channels within the Devcord community!
+        </p>
+      </div>
+      {/* This is where the direct messages will be  */}
     </div>
   )
 

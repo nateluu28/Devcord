@@ -765,7 +765,11 @@ var HomePage = function HomePage(_ref) {
   };
 
   var loggedPage = function loggedPage() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_channel_channel_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_server_server_container__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "home-page"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_server_server_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "channel-list"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Home")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Welcome to Devcord! This is a place where you can connect and message with other developers with simliar tastes! Feel free to join other servers and message through the channels within the Devcord community!")));
   };
 
   return currentUser ? loggedPage() : splashPage();
@@ -933,14 +937,16 @@ var Server = /*#__PURE__*/function (_React$Component) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
             key: i
           }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-            to: "/servers/".concat(server.id)
+            to: "/servers/".concat(server.id, "/channels/").concat(server.firstChannelId)
           }, server.name));
         });
       }
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "server-list"
-      }, serverNames);
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/"
+      }, "Home")), serverNames));
     }
   }]);
 
@@ -963,7 +969,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_sessions_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/sessions_actions */ "./frontend/actions/sessions_actions.js");
 /* harmony import */ var _actions_servers_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/servers_actions */ "./frontend/actions/servers_actions.js");
-/* harmony import */ var _server__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./server */ "./frontend/components/server/server.jsx");
+/* harmony import */ var _util_channel_api_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../util/channel_api_util */ "./frontend/util/channel_api_util.jsx");
+/* harmony import */ var _server__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./server */ "./frontend/components/server/server.jsx");
+
 
 
 
@@ -982,8 +990,9 @@ var mSTP = function mSTP(_ref) {
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, {
   logout: _actions_sessions_actions__WEBPACK_IMPORTED_MODULE_1__["logout"],
-  fetchServers: _actions_servers_actions__WEBPACK_IMPORTED_MODULE_2__["fetchServers"]
-})(_server__WEBPACK_IMPORTED_MODULE_3__["default"]));
+  fetchServers: _actions_servers_actions__WEBPACK_IMPORTED_MODULE_2__["fetchServers"],
+  fetchChannels: _util_channel_api_util__WEBPACK_IMPORTED_MODULE_3__["fetchChannels"]
+})(_server__WEBPACK_IMPORTED_MODULE_4__["default"]));
 
 /***/ }),
 

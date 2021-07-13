@@ -9,8 +9,7 @@ class ChatChannel < ApplicationCable::Channel
   def speak(data)
     @message = Message.new(data['message'])
     if @message.save
-      ChatChannel.broadcast_to(@channel, data['message'])
-    end
+      ChatChannel.broadcast_to(@channel, data['message']) end
   end
 
   def unsubscribed

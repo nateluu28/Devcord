@@ -22,7 +22,7 @@ class Server extends React.Component {
       let servers = Object.values(this.props.servers);
       serverNames = servers.map((server,i) => (
         <li key={i}>
-          <Link to={`/servers/${server.id}`}>
+          <Link to={`/servers/${server.id}/channels/${server.firstChannelId}`}>
             {server.name}
           </Link>
         </li>
@@ -32,7 +32,10 @@ class Server extends React.Component {
 
     return (
       <div className='server-list'>
+        <ul>
+        <li><Link to="/">Home</Link></li>
         {serverNames}
+        </ul>
       </div>
     )
   }
