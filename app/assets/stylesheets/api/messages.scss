@@ -9,7 +9,8 @@ li {
 
 .message-board-container {
   width: 1400px;
-  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
 }
 
 .chatroom-container {
@@ -18,19 +19,18 @@ li {
   align-items: center;
 }
 
-
 .message-list {
   height: 92vh;
   overflow-y: scroll;
   width: 100%;
   color: white;
   background-color: rgb(64, 68, 75);
-  
+
   &::-webkit-scrollbar {
     background-color: #40444b;
-}
+  }
   &::-webkit-scrollbar-thumb {
-    background: rgb(46,51,56);
+    background: rgb(46, 51, 56);
     border-radius: 5px;
   }
 
@@ -41,23 +41,23 @@ li {
   }
 }
 
-
 .message-form {
-  // background-color: rgb(64, 68, 75);
-  text-align:center;
+  text-align: center;
   margin: auto;
   display: block;
-  input[type=text] {
+  width: 100%;
+  background-color: rgb(55, 57, 62);
+  input[type="text"] {
     width: 95%;
     margin: 10px;
-    background-color: rgb(64,68,75);
+    background-color: #40444a;
     padding: 15px;
     border-radius: 5px;
     color: white;
     border: none;
     outline: none;
   }
-  input[type=submit] {
+  input[type="submit"] {
     visibility: hidden;
   }
 }
@@ -65,6 +65,6 @@ li {
 .messageItem {
   padding: 5px 10px;
   &:hover {
-    background-color: rgb(51,53,58);
+    background-color: rgb(51, 53, 58);
   }
 }

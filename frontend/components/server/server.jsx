@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { FaDiscord } from 'react-icons/fa'
 
 class Server extends React.Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class Server extends React.Component {
       serverNames = servers.map((server,i) => (
         <li key={i}>
           <Link to={`/servers/${server.id}/channels/${server.firstChannelId}`}>
-            {server.name}
+            {server.name.slice(0,2)}
           </Link>
         </li>
       ));
@@ -33,7 +33,7 @@ class Server extends React.Component {
     return (
       <div className='server-list'>
         <ul>
-          <li><Link to="/">Home</Link></li>
+          <li><Link to="/" className="home-button"><FaDiscord /></Link></li>
           {serverNames}
         </ul>
       </div>

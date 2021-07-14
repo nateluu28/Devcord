@@ -10,7 +10,7 @@
   box-sizing: border-box;
   display: flex;
   height: 100vh;
-  background: rgb(55, 57, 62);
+  background: #2e3236;
   width: 100%;
 }
 
@@ -19,7 +19,7 @@
   flex-direction: column;
   justify-content: space-between;
   color: grey;
-  width: 25%;
+  width: 15%;
   h3 {
     color: white;
     padding: 8px 10px;
@@ -29,7 +29,7 @@
 .channel-list {
   display: flex;
   flex-direction: column;
-  width: 25%;
+  width: 240px;
   a {
     text-decoration: none;
     color: white;
