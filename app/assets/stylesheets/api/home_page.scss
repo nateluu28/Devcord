@@ -7,6 +7,29 @@
 }
 
 .welcome-container {
-  background-color: grey;
   width: 1400px;
+  background-color: #40444b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    display: block;
+    color: white;
+    font-size: 50px;
+    width: 70%;
+  }
+}
+
+.home-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  background: #2e3236;
+
+  width: 240px;
+  h3 {
+    color: white;
+    padding: 8px 10px;
+  }
 }

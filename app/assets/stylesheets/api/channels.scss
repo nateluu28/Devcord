@@ -14,24 +14,18 @@
   width: 100%;
 }
 
-.home-list {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  color: grey;
-  width: 15%;
-  h3 {
-    color: white;
-    padding: 8px 10px;
-  }
-}
+
 
 .channel-list {
   display: flex;
   flex-direction: column;
   width: 240px;
+  justify-content: space-between;
   a {
     text-decoration: none;
+    color: white;
+  }
+  h3 {
     color: white;
   }
 }

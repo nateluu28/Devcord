@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SettingBarContainer from '../setting_bar/setting_bar_container';
+
 class Channel extends React.Component {
   constructor(props) {
     super(props);
@@ -23,6 +25,7 @@ class Channel extends React.Component {
 
   render () {
     let channelNames;
+    let currentServerName;
     let serverId = this.props.serverId;
     if (!this.state.loading) {
       let channels = Object.values(this.props.channels);
@@ -33,13 +36,20 @@ class Channel extends React.Component {
           </Link>
         </li>
       ));
+
+      if (this.props.servers) {
+        currentServerName = Object.values(this.props.servers)
+          .filter(server => server.id === parseInt(this.props.serverId))[0]["name"]
+      }
     }
-    console.log(this.props);
     return (
       <div className='channel-list'>
-      {/* have server name on the top */}
-        <h1>channelist</h1>
-        {channelNames}
+        <div className="channel-links">
+          <h3>{currentServerName}</h3>
+          {channelNames}
+        </div>
+        <SettingBarContainer />
+
       </div>
     )
   }

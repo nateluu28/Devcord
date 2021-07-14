@@ -1,5 +1,4 @@
 import React from 'react';
-import ChannelContainer from '../channel/channel_container';
 import ServerContainer from '../server/server_container';
 import GreetingContainer from '../greeting/greeting_container';
 import { Link } from 'react-router-dom';
