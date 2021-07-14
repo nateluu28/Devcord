@@ -510,9 +510,10 @@ var Channel = /*#__PURE__*/function (_React$Component) {
         });
       }
 
+      console.log(this.props);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "channel-list"
-      }, channelNames);
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "channelist"), channelNames);
     }
   }]);
 
@@ -1854,7 +1855,7 @@ var channelsReducer = function channelsReducer() {
       return nextState;
 
     case _actions_channels_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CHANNELS"]:
-      return Object.assign({}, action.channels, state);
+      return Object.assign({}, action.channels);
 
     case _actions_channels_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_CHANNEL"]:
       delete nextState[action.channelId];

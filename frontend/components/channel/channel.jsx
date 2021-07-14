@@ -34,10 +34,11 @@ class Channel extends React.Component {
         </li>
       ));
     }
-
+    console.log(this.props);
     return (
       <div className='channel-list'>
-      {/* have server name on the top  */}
+      {/* have server name on the top */}
+        <h1>channelist</h1>
         {channelNames}
       </div>
     )
