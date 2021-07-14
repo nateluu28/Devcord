@@ -1,3 +1,12 @@
 .home-page {
   display: flex;
+  box-sizing: border-box;
+  height: 100vh;
+  background: #37393e;
+  width: 100%;
+}
+
+.welcome-container {
+  background-color: grey;
+  // width: 50%;
 }

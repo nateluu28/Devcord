@@ -37,6 +37,7 @@ class Channel extends React.Component {
 
     return (
       <div className='channel-list'>
+      {/* have server name on the top  */}
         {channelNames}
       </div>
     )

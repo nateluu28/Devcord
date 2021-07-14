@@ -3,8 +3,9 @@ import ChannelContainer from '../channel/channel_container';
 import ServerContainer from '../server/server_container';
 import GreetingContainer from '../greeting/greeting_container';
 import { Link } from 'react-router-dom';
+import SettingBarContainer from '../setting_bar/setting_bar_container';
 
-const HomePage = ({ currentUser}) => {
+const HomePage = ({ currentUser }) => {
   const splashPage = () => (
     <div className='homepage'>
         <GreetingContainer />
@@ -30,10 +31,11 @@ const HomePage = ({ currentUser}) => {
   const loggedPage = () => (
     <div className="home-page">
       <ServerContainer />
-      <div className="channel-list">
+      <div className="home-list">
         <h3>Home</h3>
+        <SettingBarContainer />
       </div>
-      <div>
+      <div className="welcome-container">
         <p>
           Welcome to Devcord! This is a place where you can connect and message 
           with other developers with simliar tastes! Feel free to join other servers

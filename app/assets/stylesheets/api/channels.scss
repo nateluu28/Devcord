@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-*{
+* {
   margin: 0;
 }
 
@@ -14,10 +14,44 @@
   width: 100%;
 }
 
+.home-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: grey;
+  width: 25%;
+  h3 {
+    color: white;
+    padding: 8px 10px;
+  }
+}
+
 .channel-list {
   display: flex;
   flex-direction: column;
+  width: 25%;
   a {
-    color: grey;
+    text-decoration: none;
+    color: white;
   }
+}
+
+.setting-icons {
+  color: rgb(185, 187, 190);
+  padding: 5px;
+}
+
+.setting-bar {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(41, 43, 47);
+  width: 100%;
+  padding: 8px 10px;
+  box-sizing: border-box;
+}
+
+.setting-icons-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
