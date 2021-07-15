@@ -13,8 +13,9 @@ class Server extends React.Component {
   componentDidMount() {
     this.props.fetchServers()
       .then(() => this.setState({loading: false}));
-    console.log(this.state);
   }
+
+
 
   render() {
     let serverNames;

@@ -113,7 +113,6 @@ class MessageBoard extends React.Component {
         // )
     return (
       <div className='message-board-container'>
-        <ChannelBarContainer />
         <div className="message-list">
           {messageList}
         </div>
