@@ -1,5 +1,6 @@
 import React from 'react';
 import MessageFormContainer from './message_form_container';
+import ChannelBarContainer from '../components/channel/channel_bar_container';
 import {
   withRouter
 } from 'react-router-dom';
@@ -16,7 +17,6 @@ class MessageBoard extends React.Component {
 
     componentDidMount() {
       // creates a subscription to the specific action cable
-      console.log('mounted')
       // console.log(App.cable.subscriptions)
       App.cable.subscriptions.create({
         channel: "ChatChannel",
@@ -113,6 +113,7 @@ class MessageBoard extends React.Component {
         // )
     return (
       <div className='message-board-container'>
+        <ChannelBarContainer />
         <div className="message-list">
           {messageList}
         </div>

@@ -7,6 +7,12 @@ import {
 class Profile extends React.Component {
   constructor(props){
     super(props);
+    this.goBack = this.goBack.bind(this);
+  }
+
+  goBack(){
+    console.log('goback')
+    this.props.history.goBack();
   }
 
   render() {
@@ -14,7 +20,7 @@ class Profile extends React.Component {
     return (
       <div className="profile-page">
         <div className="profile-container">
-        <div className="exit-button">
+        <div className="exit-button" onClick={this.goBack}>
           <div>
             <FaRegTimesCircle size={36} />
           </div>
@@ -56,4 +62,4 @@ class Profile extends React.Component {
   }
 }
 
-export default withRouter(Profile);
+export default Profile;

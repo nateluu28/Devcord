@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SettingBarContainer from '../setting_bar/setting_bar_container';
-
+import { isEmpty } from "lodash";
 
 class Channel extends React.Component {
   constructor(props) {
@@ -45,7 +45,9 @@ class Channel extends React.Component {
     return (
       <div className='channel-list'>
         <div className="channel-links">
-          <h3>{currentServerName}</h3>
+          <div className="server-name">
+            <h3>{currentServerName}</h3>
+          </div>
           {channelNames}
         </div>
         <SettingBarContainer />

@@ -8,7 +8,7 @@
 
 .welcome-container {
   width: 1400px;
-  background-color: #40444b;
+  background-color: #363a3e;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,6 +30,13 @@
   width: 240px;
   h3 {
     color: white;
-    padding: 8px 10px;
+    padding: 8px 15px;
   }
+}
+
+.home-container {
+  -webkit-box-shadow: 0 1px 0 rgba(4, 4, 5, 0.2), 0 1.5px 0 rgba(6, 6, 7, 0.05),
+    0 2px 0 rgba(4, 4, 5, 0.05);
+  box-shadow: 0 1px 0 rgba(4, 4, 5, 0.2), 0 1.5px 0 rgba(6, 6, 7, 0.05),
+    0 2px 0 rgba(4, 4, 5, 0.05);
 }

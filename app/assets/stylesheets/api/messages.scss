@@ -24,14 +24,18 @@ li {
   overflow-y: scroll;
   width: 100%;
   color: white;
-  background-color: rgb(64, 68, 75);
+  background-color: #363a3e;
 
   &::-webkit-scrollbar {
-    background-color: #40444b;
+    background-color: #2e3437;
+    width: 8px;
+    height: 16px;
+    border-radius: 8px;
   }
   &::-webkit-scrollbar-thumb {
-    background: rgb(46, 51, 56);
-    border-radius: 5px;
+    background: #1f2325;
+    border-radius: 8px;
+    background-clip: padding-box;
   }
 
   &::-webkit-scrollbar-track {
@@ -49,7 +53,7 @@ li {
   background-color: rgb(55, 57, 62);
   input[type="text"] {
     width: 95%;
-    margin: 10px;
+    margin-top: 5px;
     background-color: #40444a;
     padding: 15px;
     border-radius: 5px;

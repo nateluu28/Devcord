@@ -31,7 +31,9 @@ const HomePage = ({ currentUser }) => {
     <div className="home-page">
       <ServerContainer />
       <div className="home-list">
-        <h3>Home</h3>
+        <div className="home-container">
+          <h3>Home</h3>
+        </div>
         <SettingBarContainer />
       </div>
       <div className="welcome-container">
