@@ -7,6 +7,8 @@ import { Route, Switch } from 'react-router';
 import HomePageContainer from './homepage/homepage_container';
 import ChannelItem from './channel/channel_item';
 import NoMatch from './nomatch/nomatch';
+import ProfileContainer from './profile/profile_container';
+
 
 const App = () => (
   <div className='app'>
@@ -15,6 +17,7 @@ const App = () => (
       <AuthRoute exact path='/login' component={LoginFormContainer} />
       <AuthRoute exact path='/signup' component={SignupFormContainer} />
       <ProtectedRoute path='/servers/:serverId/channels/:channelId' component={ChannelItem} />
+      <ProtectedRoute path='/profile' component={ProfileContainer} />
       <Route path='*' component={NoMatch} />
     </Switch>
   </div>

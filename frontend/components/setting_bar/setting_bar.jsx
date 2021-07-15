@@ -1,5 +1,6 @@
 import React from "react";
 import { MdHome, MdSettings } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 class SettingBar extends React.Component {
   constructor(props){
     super(props);
@@ -10,8 +11,12 @@ class SettingBar extends React.Component {
       <div className="setting-bar">
         <h3>{this.props.currentUser.username}</h3>
         <div className="setting-icons-container">
-          <MdHome className="setting-icons"  size={22}/>
-          <MdSettings className="setting-icons" size={22}/>
+          <Link to="/">
+            <MdHome className="setting-icons"  size={22}/>
+          </Link>
+          <Link to="/profile">
+            <MdSettings className="setting-icons" size={22}/>
+          </Link>
         </div>
       </div>
     )

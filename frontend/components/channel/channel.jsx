@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SettingBarContainer from '../setting_bar/setting_bar_container';
 
+
 class Channel extends React.Component {
   constructor(props) {
     super(props);
@@ -36,8 +37,7 @@ class Channel extends React.Component {
           </Link>
         </li>
       ));
-
-      if (this.props.servers) {
+      if (this.props && !_.isEmpty(this.props.servers)) {
         currentServerName = Object.values(this.props.servers)
           .filter(server => server.id === parseInt(this.props.serverId))[0]["name"]
       }
