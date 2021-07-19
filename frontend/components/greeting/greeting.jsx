@@ -1,17 +1,20 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 
 const Greeting = ({ currentUser, logout }) => {
   let history = useHistory();
   const sessionLinks = () => (
     <div className="header-container">
-      <span>DEVCORD</span>
+      <div className="left-container">
+        <img src="https://logos-world.net/wp-content/uploads/2020/11/Discord-Emblem.png"></img>
+        <span>DEVCORD</span>
+      </div>
       <div className="header-links">
         <a href='https://github.com/nateluu28/Devcord/' target="_blank">Github</a>
         <a href='https://www.linkedin.com/in/nathan-luu/' target="_blank">LinkedIn</a>
         <a href='https://angel.co/u/nathan-luu-1' target="_blank">Angelist</a>
-        <a href='#' target="_blank">TODOResume</a>
+        {/* <a href='#' target="_blank">TODOResume</a> */}
       </div>
         <button 
           onClick={()=> history.push("/login")} 
