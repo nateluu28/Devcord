@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Server.destroy_all
+Channel.destroy_all
 
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 
