@@ -84,33 +84,7 @@ class MessageBoard extends React.Component {
         )
       });
     }
-        // const firstMessage = messages[0];
-        // messageList = messages.slice(1).reduce((acc, currMessage) => {
-        //   let lastMessages = acc[acc.length - 1];
-        //   let lastMessage = lastMessages[lastMessages.length - 1];
-        //   if (lastMessage.author_id === currMessage.author_id) {
-        //     lastMessages.push(currMessage);
-        //     acc[acc.length - 1] = lastMessages;
-        //   } else {
-        //     acc.push([currMessage]);
-        //   }
-        //   return acc;
-        // }, [
-        //   [firstMessage]
-        // ]);
-        // // console.log(messageList);
 
-        // let messageRender = messageList.map((group) => {
-        //   return (
-        //     <div>
-        //       {this.renderMessages}
-        //     </div>
-        //   );
-        // });
-
-        // return ( 
-        // <div>{messageRender}</div>
-        // )
     return (
       <div className='message-board-container'>
         <div className="message-list">

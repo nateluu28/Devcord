@@ -51,7 +51,7 @@
 }
 
 .server-name {
-  height: 50px;
+  height: 47px;
   -webkit-box-shadow: 0 1px 0 rgba(4, 4, 5, 0.2), 0 1.5px 0 rgba(6, 6, 7, 0.05),
     0 2px 0 rgba(4, 4, 5, 0.05);
   box-shadow: 0 1px 0 rgba(4, 4, 5, 0.2), 0 1.5px 0 rgba(6, 6, 7, 0.05),
@@ -65,7 +65,9 @@
   background-color: #363a3e;
   border-bottom: 1px solid black;
   height: 50px;
-  padding-bottom: 7px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   -webkit-box-shadow: 8px 0px 0px 0px #dcd0c0, 0px 8px 0px 0px #b1938b,
     -8px 0px 0px 0px #4e4e56 1px 4px 0px 5px rgba(0, 0, 0, 0.73);
@@ -77,6 +79,28 @@
     font-size: 18px;
     padding: 8px 15px;
   }
+}
+
+.social-links {
+  color: white;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  a:visited {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.social-links-items {
+  padding-right: 15px;
+  vertical-align: bottom;
 }
 
 .right-side-container {
