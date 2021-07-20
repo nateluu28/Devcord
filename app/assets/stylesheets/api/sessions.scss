@@ -108,6 +108,13 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  a {
+    text-decoration: none;
+    color: #00aff4;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 .signup-background {
   position: absolute;
@@ -120,6 +127,13 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  a {
+    text-decoration: none;
+    color: #00aff4;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 .home-login-button {
@@ -129,4 +143,15 @@
   text-align: center;
   font-size: 14px;
   height: 40px;
+}
+
+@media only screen and (min-width: 2560px) {
+  .session-container {
+    width: 1130px;
+    height: 600px;
+  }
+  .signup-container {
+    width: 630px;
+    height: 760px;
+  }
 }
