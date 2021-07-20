@@ -40,9 +40,30 @@ class MessageBoard extends React.Component {
 
     componentDidUpdate(prevProps) {
       if (prevProps.match.params.channelId !== this.props.match.params.channelId) {
-        console.log(App.cable.subscriptions.subscriptions.indentfiers);
+        console.log(App.cable.subscriptions.subscriptions.identifier);
         const identifier = App.cable.subscriptions.subscriptions.map(subs => JSON.parse(subs.identifier));
-        console.log(identifier.channelId)
+        let channelIds = identifier.map(data => data.channelId);
+        if (channelIds.indexOf(this.props.match.params.channelId) === -1){
+          console.log('workds')
+          App.cable.subscriptions.create({
+            channel: "ChatChannel",
+            channelId: this.props.channelId
+          }, {
+            received: data => {
+              this.props.fetchMessages('Channel', this.props.channelId)
+  
+            },
+            speak: function (data) {
+              return this.perform("speak", data);
+            }
+          });
+          // fetches messages data
+          this.props.fetchMessages('Channel', this.props.match.params.channelId)
+            .then(() => this.setState({
+              loading: false
+            }))
+        }
+
 
         // App.cable.subscriptions.create(
         // { channel: "ChatChannel", channelId: this.props.channelId },
