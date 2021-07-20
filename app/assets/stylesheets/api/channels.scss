@@ -10,7 +10,7 @@
   box-sizing: border-box;
   display: flex;
   height: 100vh;
-  background: #2e3236;
+  background: rgb(47, 49, 54);
   width: 100%;
 }
 
@@ -62,7 +62,7 @@
 }
 
 .channel-name {
-  background-color: #363a3e;
+  background-color: rgb(54, 57, 63);
   border-bottom: 1px solid black;
   height: 50px;
   display: flex;
@@ -78,6 +78,10 @@
     color: white;
     font-size: 18px;
     padding: 8px 15px;
+  }
+  span {
+    color: rgb(114, 118, 125);
+    font-size: 18px;
   }
 }
 

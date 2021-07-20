@@ -44,7 +44,7 @@ class ChannelBar extends React.Component {
       <div className="channel-name"> 
         <div>
           <h1>
-            {channelName}
+            <span>#</span> {channelName}
           </h1>
         </div>
         <div className="social-links">
