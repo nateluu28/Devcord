@@ -35,7 +35,7 @@ class MessageBoard extends React.Component {
         .then(() => this.setState({
           loading: false
         }))
-        // .then(this.bottom.current.scrollIntoView());
+
     }
 
     componentDidUpdate(prevProps) {
@@ -44,7 +44,6 @@ class MessageBoard extends React.Component {
         const identifier = App.cable.subscriptions.subscriptions.map(subs => JSON.parse(subs.identifier));
         let channelIds = identifier.map(data => data.channelId);
         if (channelIds.indexOf(this.props.match.params.channelId) === -1){
-          console.log('workds')
           App.cable.subscriptions.create({
             channel: "ChatChannel",
             channelId: this.props.channelId
@@ -64,22 +63,10 @@ class MessageBoard extends React.Component {
             }))
         }
 
-
-        // App.cable.subscriptions.create(
-        // { channel: "ChatChannel", channelId: this.props.channelId },
-        // {
-        //   received: data => {
-        //     this.props.fetchMessages('Channel', this.props.channelId)
-
-        //   },
-        //   speak: function(data) {
-        //     return this.perform("speak", data);
-        //   }
-        // }
-        // );
         this.props.fetchMessages('Channel', this.props.match.params.channelId)
         // .then(this.bottom.current.scrollIntoView());
       }
+      this.bottom.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
     }
 
     // componentWillUnmount() {
