@@ -46,7 +46,7 @@ class MessageForm extends React.Component{
             onChange={this.update("body")}
             placeholder={`Message in this Channel!`}
           />
-          <input type="submit" />
+          <input type="submit" type="hidden"/>
         </form>
       </div>
     );

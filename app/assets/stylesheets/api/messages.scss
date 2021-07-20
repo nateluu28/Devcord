@@ -65,11 +65,27 @@ li {
   input[type="submit"] {
     visibility: hidden;
   }
+  form {
+    height: 350px;
+  }
 }
 
 .messageItem {
   padding: 5px 10px;
   &:hover {
     background-color: rgb(51, 53, 58);
+  }
+}
+
+.member-message-container {
+  display: flex;
+}
+
+@media only screen and (min-width: 2560px) {
+  .message-list {
+    height: 90vh;
+  }
+  .message-form input[type="text"] {
+    margin-bottom: 5px;
   }
 }

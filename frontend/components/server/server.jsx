@@ -35,6 +35,7 @@ class Server extends React.Component {
       <div className='server-list'>
         <ul>
           <li><Link to="/" className="home-button"><FaDiscord /></Link></li>
+          <hr></hr>
           {serverNames}
         </ul>
       </div>

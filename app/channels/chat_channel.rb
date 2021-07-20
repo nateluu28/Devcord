@@ -9,7 +9,6 @@ class ChatChannel < ApplicationCable::Channel
   def speak(data)
     @message = Message.new(data['message'])
     if @message.save
-      debugger
       ChatChannel.broadcast_to(@channel, data['message']) 
     end
   end
