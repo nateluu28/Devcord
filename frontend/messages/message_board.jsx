@@ -1,6 +1,5 @@
 import React from 'react';
 import MessageFormContainer from './message_form_container';
-import ChannelBarContainer from '../components/channel/channel_bar_container';
 import {
   withRouter
 } from 'react-router-dom';
@@ -17,7 +16,6 @@ class MessageBoard extends React.Component {
 
     componentDidMount() {
       // creates a subscription to the specific action cable
-      // console.log(App.cable.subscriptions)
       App.cable.subscriptions.create({
         channel: "ChatChannel",
         channelId: this.props.channelId
@@ -40,7 +38,6 @@ class MessageBoard extends React.Component {
 
     componentDidUpdate(prevProps) {
       if (prevProps.match.params.channelId !== this.props.match.params.channelId) {
-        console.log(App.cable.subscriptions.subscriptions.identifier);
         const identifier = App.cable.subscriptions.subscriptions.map(subs => JSON.parse(subs.identifier));
         let channelIds = identifier.map(data => data.channelId);
         if (channelIds.indexOf(this.props.match.params.channelId) === -1){
@@ -64,20 +61,13 @@ class MessageBoard extends React.Component {
         }
 
         this.props.fetchMessages('Channel', this.props.match.params.channelId)
-        // .then(this.bottom.current.scrollIntoView());
       }
-      this.bottom.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      if (this.bottom.current) {
+        this.bottom.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+        }
     }
 
-    // componentWillUnmount() {
-    //   if (App.room) {
-    //     App.cable.subscriptions.remove(this.props.match.params.channelId);
-      
-    // }
-
-
   render() {
-    console.log(this.props.match.params.channelId);
     let messageList;
     if (!this.props.loading) {
       let messages = Object.values(this.props.messages);

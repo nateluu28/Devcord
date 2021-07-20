@@ -8,7 +8,12 @@ class MemberBoard extends React.Component {
   render () {
     return (
       <div>
-        Membersfdsafdsfdsf
+        <h2>Online - 5</h2>
+        <ul>
+          <li>supernate28</li>
+          <li>demo</li>
+          <li>demo</li>
+        </ul>
       </div>
     )
   }
