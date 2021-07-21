@@ -25,9 +25,6 @@ class ChannelBar extends React.Component {
     // console.log(this.state.channelId)
     // console.log(this.props.match.params.channelId)
     if (this.state.channelId !== this.props.match.params.channelId){
-      
-      console.log("called")
-      console.log(this.props.match.params.serverId);
       this.props.fetchChannels(this.props.match.params.serverId)
         .then(this.setState({ channelId: this.props.match.params.channelId }));
     }

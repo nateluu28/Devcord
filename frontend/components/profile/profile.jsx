@@ -11,7 +11,6 @@ class Profile extends React.Component {
   }
 
   goBack(){
-    console.log('goback')
     this.props.history.goBack();
   }
 

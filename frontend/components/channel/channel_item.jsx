@@ -13,7 +13,6 @@ class ChannelItem extends React.Component {
   }
 
   render(){
-    console.log(this.props);
     return (
       <div className='chat-room'>
         <ServerContainer />

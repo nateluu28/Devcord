@@ -19,7 +19,6 @@ export const receiveErrors = errors => ({
 });
 
 export const signup = user => dispatch => {
-  console.log(user);
   return sessionAPIUtil.signup(user).then(user => (
     dispatch(receiveCurrentUser(user))
   ), err => (
