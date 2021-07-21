@@ -48,6 +48,7 @@ class Channel extends React.Component {
           <div className="server-name">
             <h3>{currentServerName}</h3>
           </div>
+          <h4>TEXT CHANNELS</h4>
           {channelNames}
         </div>
         <SettingBarContainer />

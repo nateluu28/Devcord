@@ -8,7 +8,7 @@ class MemberBoard extends React.Component {
   render () {
     return (
       <div className="member-container">
-        <h2>ONLINE - 3</h2>
+        <h2>ONLINE - 4</h2>
         <ul>
           <li>          
             <img src="https://yt3.ggpht.com/ytc/AKedOLQc1OCf9gztVmcVnmI_41uN9axrRP8wd4a-GflFRQ=s900-c-k-c0x00ffffff-no-rj"></img>
