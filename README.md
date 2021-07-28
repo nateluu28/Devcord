@@ -10,3 +10,5 @@ Devcord is a cloned version of the popular messaging platform, [Discord](discord
 
 Devcord is a full-stack application using Javascript and React as the frontend and Ruby on Rails as the backend. For the real-time chat feature, I used
 Ruby on Rails' version of websockets, ActionCable.
+
+## Code Snippets
